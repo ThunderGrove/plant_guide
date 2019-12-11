@@ -1,17 +1,16 @@
 package logic;
 
 import java.util.ArrayList;
-import java.util.List;
 import persistence.DBPlant;
 
 public class PlantHandler{
     DBPlant persistence=new DBPlant();
 
-    public ArrayList<String>getPlant(int plantId){
-        return null;
+    public Plant getPlant(int plantId){
+        return persistence.getPlant(plantId);
     }
 
-    public int createPlant(String plantName,int plantType,int soilType,int lighttolerance,String comment){
+    public void createPlant(String plantName,int plantType,int soilType,int lighttolerance,String comment){
         Plant plant=null;
         plant.setPlantName(plantName);
         plant.setPlantType(plantType);
@@ -20,18 +19,26 @@ public class PlantHandler{
         plant.setComment(comment);
 
         persistence.createPlant(plant);
-        return 0;
     }
 
-    public int editPlant(String plantName,int plantType,int soilType,int lighttolerance,String comment){
-        return 0;
+    public void editPlant(int plantId,String plantName,int plantType,int soilType,int lighttolerance,String comment){
+        Plant plant=null;
+        plant.setPlantID(plantId);
+        plant.setPlantName(plantName);
+        plant.setPlantType(plantType);
+        plant.setSoilType(soilType);
+        plant.setLighttolerance(lighttolerance);
+        plant.setComment(comment);
+        persistence.editPlant(plant);
     }
 
-    public int deletePlant(int plantId){
-        return 0;
+    public void deletePlant(int plantId){
+        Plant plant=null;
+        plant.setPlantID(plantId);
+        persistence.deletePlant(plant);
     }
 
-    public ArrayList<List>search(String request){
+    public ArrayList<Plant>search(String request){
         return null;
     }
 
