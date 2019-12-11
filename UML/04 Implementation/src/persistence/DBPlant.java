@@ -5,6 +5,7 @@ import logic.PlantHandler;
 import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
+import logic.Plant;
 
 public class DBPlant {
 
