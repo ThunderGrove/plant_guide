@@ -112,7 +112,7 @@ public class DBPlant {
 
             // set prepared statement values
             ps.setString(1, p.getName());
-            ps.setInt(2, p.getSoiltype());
+            ps.setInt(2, p.getSoilType());
             ps.setInt(3, p.getPlanttype());
             ps.setInt(4, p.getLighttolerance());
             ps.setString(5, p.getExtra());
@@ -139,7 +139,7 @@ public class DBPlant {
 
             // set prepared statement values
             ps.setString(1, p.getName());
-            ps.setInt(2, p.getSoiltype());
+            ps.setInt(2, p.getSoilType());
             ps.setInt(3, p.getPlanttype());
             ps.setInt(4, p.getLighttolerance());
             ps.setString(5, p.getExtra());

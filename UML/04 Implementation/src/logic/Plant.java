@@ -31,7 +31,7 @@ public class Plant{
         this.plantType = plantType;
     }
 
-    public int getSoiltype(){
+    public int getSoilType(){
         return soilType;
     }
 
