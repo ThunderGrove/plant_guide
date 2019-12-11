@@ -39,7 +39,7 @@ public class PlantHandler{
     }
 
     public ArrayList<Plant>search(String request){
-        return null;
+        return persistence.getPlants(request);
     }
 
     public ArrayList<Plant>search(){
