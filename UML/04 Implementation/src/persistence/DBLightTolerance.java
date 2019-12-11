@@ -34,4 +34,51 @@ public class DBLightTolerance {
         return lt;
     }
 
+    public static void createLightTolerance(LightTolerance lt) {
+        String query = "INSERT INTO lighttolerance(name) VALUES(?)";
+
+        try (Connection conn = DB.connect();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, lt.getName());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void editLightTolerance(LightTolerance lt) {
+        String query = "UPDATE lighttolerance SET name = ? " +
+                "WHERE id = ?";
+
+        try (Connection conn = DB.connect();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, lt.getName());
+            ps.setInt(2, lt.getId());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void deleteLightTolerance(LightTolerance lt) {
+        String query = "DELETE FROM lighttolerance WHERE id = ?";
+
+        try (Connection conn = DB.connect();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setInt(1, lt.getId());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
