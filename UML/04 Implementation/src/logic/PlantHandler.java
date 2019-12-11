@@ -12,7 +12,7 @@ public class PlantHandler{
     }
 
     public int createPlant(String plantName,int plantType,int soilType,int lighttolerance,String comment){
-        Plant plant=new Plant();
+        Plant plant=null;
         plant.setPlantName(plantName);
         plant.setPlantType(plantType);
         plant.setSoilType(soilType);
