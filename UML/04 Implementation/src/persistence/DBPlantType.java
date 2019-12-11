@@ -35,4 +35,36 @@ public class DBPlantType {
 
     }
 
+    public static void createPlantType(PlantType pt) {
+        String query = "INSERT INTO planttype(name) VALUES(?)";
+
+        try (Connection conn = DB.connect();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, pt.getName());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void editPlantType(PlantType pt) {
+        String query = "UPDATE planttype SET name = ? " +
+                "WHERE id = ?";
+
+        try (Connection conn = DB.connect();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, pt.getName());
+            ps.setInt(2, pt.getId());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
