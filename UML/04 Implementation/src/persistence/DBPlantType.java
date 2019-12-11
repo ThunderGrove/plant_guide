@@ -67,4 +67,19 @@ public class DBPlantType {
         }
     }
 
+    public static void deletePlantType(PlantType pt) {
+        String query = "DELETE FROM plant WHERE id = ?";
+
+        try (Connection conn = DB.connect();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setInt(1, pt.getId());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
