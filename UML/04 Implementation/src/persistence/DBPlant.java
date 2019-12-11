@@ -102,6 +102,42 @@ public class DBPlant {
 
     }
 
+    public static ArrayList<Plant> getPlants(String request) {
+        ArrayList<Plant> plants = new ArrayList<Plant>();
+
+        String query = "SELECT * FROM plant AS p " +
+                "INNER JOIN soiltype AS st ON p.soiltype=st.id " +
+                "INNER JOIN planttype AS pt ON p.planttype=pt.id " +
+                "INNER JOIN lighttolerance AS lt ON p.lighttolerance=lt.id " +
+                "WHERE plant MATCH '?' " +
+                "ORDER BY rank";
+
+        try (Connection conn = DB.connect();
+            PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, request);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Plant plant = new Plant(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getInt("planttype"),
+                        rs.getInt("soiltype"),
+                        rs.getInt("lighttolerance"),
+                        rs.getString("extra")
+                );
+
+                plants.add(plant);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return plants;
+    }
+
     public static void createPlant(Plant p) {
 
         // set query string
