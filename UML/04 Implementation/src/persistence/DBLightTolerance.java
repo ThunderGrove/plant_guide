@@ -34,4 +34,19 @@ public class DBLightTolerance {
         return lt;
     }
 
+    public static void createLightTolerance(LightTolerance lt) {
+        String query = "INSERT INTO lighttolerance(name) VALUES(?)";
+
+        try (Connection conn = DB.connect();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, lt.getName());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
