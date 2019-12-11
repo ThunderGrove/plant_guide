@@ -49,4 +49,21 @@ public class DBLightTolerance {
         }
     }
 
+    public static void editLightTolerance(LightTolerance lt) {
+        String query = "UPDATE lighttolerance SET name = ? " +
+                "WHERE id = ?";
+
+        try (Connection conn = DB.connect();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, lt.getName());
+            ps.setInt(2, lt.getId());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
