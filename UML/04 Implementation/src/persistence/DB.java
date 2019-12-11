@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class DB {
 
-    public static Connection connect() {
+    static Connection connect() {
 
         Connection conn = null;
 
