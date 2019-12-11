@@ -12,7 +12,14 @@ public class PlantHandler{
     }
 
     public int createPlant(String plantName,int plantType,int soilType,int lighttolerance,String comment){
+        Plant plant=new Plant();
+        plant.setPlantName(plantName);
+        plant.setPlantType(plantType);
+        plant.setSoilType(soilType);
+        plant.setLighttolerance(lighttolerance);
+        plant.setComment(comment);
 
+        persistence.createPlant(plant);
         return 0;
     }
 
