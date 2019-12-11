@@ -26,6 +26,7 @@ public class MainWindowController {
     @FXML private TableColumn<Plant, String> infoColumn;
 
     public void initialize() {
+        showPlants();
     }
 
     @FXML
@@ -61,13 +62,15 @@ public class MainWindowController {
 
         ObservableList<Plant> list = FXCollections.observableArrayList();
 
+        //Test tabellen.
+        Plant p = new Plant(1, "Rose", 0, 0, 0, "Test");
         list.addAll(array);
 
-        navnColumn.setCellValueFactory(new PropertyValueFactory<>("plantName"));
-        plantetypeColumn.setCellValueFactory(new PropertyValueFactory<>("plantType"));
+        navnColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        plantetypeColumn.setCellValueFactory(new PropertyValueFactory<>("planttype"));
         jordtypeColumn.setCellValueFactory(new PropertyValueFactory<>("soilType"));
         lystoleranceColumn.setCellValueFactory(new PropertyValueFactory<>("lighttolerance"));
-        infoColumn.setCellValueFactory(new PropertyValueFactory<>("comment"));
+        infoColumn.setCellValueFactory(new PropertyValueFactory<>("extra"));
 
         plantList.setItems(list);
     }
