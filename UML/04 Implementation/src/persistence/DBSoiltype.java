@@ -42,4 +42,21 @@ public class DBSoiltype {
 
     }
 
+    public static void deleteSoiltype(Soiltype st) {
+
+        String query = "DELETE FROM plant WHERE id = ?";
+
+        try (Connection conn = DB.connect();
+            PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setInt(1, st.getId);
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
 }
