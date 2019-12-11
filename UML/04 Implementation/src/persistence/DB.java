@@ -49,12 +49,12 @@ public class DB {
                     "id integer PRIMARY KEY NOT NULL, " +
                     "name text NOT NULL, " +
                     "soiltype integer NOT NULL, " +
-                    "FOREIGN KEY(soiltype) REFERENCES soiltype(id), " +
                     "planttype integer NOT NULL, " +
-                    "FOREIGN KEY(planttype) REFERENCES planttype(id), " +
                     "lighttolerance integer NOT NULL, " +
-                    "FOREIGN KEY(lighttolerance) REFERENCES lighttolerance(id), " +
-                    "extra text);";
+                    "extra text, " +
+                    "FOREIGN KEY(soiltype) REFERENCES soiltype(id), " +
+                    "FOREIGN KEY(planttype) REFERENCES planttype(id), " +
+                    "FOREIGN KEY(lighttolerance) REFERENCES lighttolerance(id));";
 
             try (Connection conn = connect();
                 Statement st = conn.createStatement()) {
