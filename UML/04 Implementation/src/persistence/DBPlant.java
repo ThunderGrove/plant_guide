@@ -143,7 +143,7 @@ public class DBPlant {
             ps.setInt(3, p.getPlanttype());
             ps.setInt(4, p.getLighttolerance());
             ps.setString(5, p.getExtra());
-            ps.setInt(6, p.getId());
+            ps.setInt(6, p.getPlantID());
 
             ps.executeUpdate();
 
@@ -161,7 +161,7 @@ public class DBPlant {
             PreparedStatement ps = conn.prepareStatement(query)) {
 
             // set prepared statement values
-            ps.setInt(1, p.getId());
+            ps.setInt(1, p.getPlantID());
 
             ps.executeUpdate();
 
