@@ -1,4 +1,27 @@
 package ui;
 
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
 public class MainWindowController {
+
+    @FXML
+    public void moveToCreateWindow() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Plant Guide-3.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+
+        stage.setScene(scene);
+        stage.setTitle("Create plant");
+        stage.setResizable(false);
+        stage.initOwner(Main.window);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.show();
+    }
 }
