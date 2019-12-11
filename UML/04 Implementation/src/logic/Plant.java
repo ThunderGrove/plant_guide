@@ -1,11 +1,27 @@
 package logic;
 
 public class Plant{
+    private int plantID;
     private int plantType;
     private int soilType;
     private int lighttolerance;
     private String comment;
     private String plantName;
+
+    public void Plant(int plantID,
+                      String plantName,
+                      int plantType,
+                      int soilType,
+                      int lighttolerance,
+                      String comment
+            ){
+        this.plantID=plantID;
+        this.comment=comment;
+        this.plantName=plantName;
+        this.plantType=plantType;
+        this.soilType=soilType;
+        this.lighttolerance=lighttolerance;
+    }
 
     public int getPlanttype() {
         return plantType;
