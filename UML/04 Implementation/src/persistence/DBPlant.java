@@ -59,13 +59,15 @@ public class DBPlant {
                 );
             }
 
-            return plant;
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
+        return plant;
+
     }
+
+
 
     public static void createPlant(Plant p) {
 
