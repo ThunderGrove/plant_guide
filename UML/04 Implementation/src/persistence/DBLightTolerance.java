@@ -66,4 +66,19 @@ public class DBLightTolerance {
         }
     }
 
+    public static void deleteLightTolerance(LightTolerance lt) {
+        String query = "DELETE FROM lighttolerance WHERE id = ?";
+
+        try (Connection conn = DB.connect();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setInt(1, lt.getId());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
