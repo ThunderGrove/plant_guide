@@ -1,10 +1,7 @@
 package persistence;
 
 import javax.xml.transform.Result;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DBPlant {
 
@@ -37,6 +34,37 @@ public class DBPlant {
         }
 
         return nameExists;
+    }
+
+    public static Plant getPlant(int id) {
+        Plant plant = null;
+
+        String query = "SELECT * FROM plant WHERE id = ? LIMIT 1";
+
+        try (Connection conn = DB.connect();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                plant = new Plant(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getInt("soiltype"),
+                        rs.getInt("planttype"),
+                        rs.getInt("lighttolerance"),
+                        rs.getString("extra")
+
+                );
+            }
+
+            return plant;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     public static void createPlant(Plant p) {
