@@ -39,4 +39,27 @@ public class DBPlant {
         return nameExists;
     }
 
+    public static void createPlant(Plant p) {
+
+        // set query string
+        String query = "INSERT INTO plant(name, soiltype, planttype, lighttolerance, extra) VALUES(?,?,?,?,?)";
+
+        try (Connection conn = DB.connect();
+            PreparedStatement ps = conn.prepareStatement(query)) {
+
+            // set prepared statement values
+            ps.setString(1, p.getName());
+            ps.setInt(2, p.getSoiltype());
+            ps.setInt(3, p.getPlanttype());
+            ps.setInt(4, p.getLighttolerance());
+            ps.setString(5, p.getExtra());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+
+    }
+
 }
