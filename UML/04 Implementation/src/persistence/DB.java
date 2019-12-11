@@ -34,19 +34,19 @@ public class DB {
         if (!dbFile.exists()) {
 
             String lighttoleranceQuery = "CREATE TABLE IF NOT EXISTS lighttolerance (" +
-                    "id integer PRIMARY KEY NOT NULL, " +
+                    "id integer PRIMARY KEY AUTOINCREMENT, " +
                     "lighttolerance text NOT NULL);";
 
             String planttypeQuery = "CREATE TABLE IF NOT EXISTS planttype (" +
-                    "id integer PRIMARY KEY NOT NULL, " +
+                    "id integer PRIMARY KEY AUTOINCREMENT, " +
                     "planttype text NOT NULL);";
 
             String soiltypeQuery = "CREATE TABLE IF NOT EXISTS soiltype (" +
-                    "id integer PRIMARY KEY NOT NULL, " +
+                    "id integer PRIMARY KEY AUTOINCREMENT, " +
                     "soiltype text NOT NULL);";
 
             String plantQuery = "CREATE TABLE IF NOT EXISTS plant ( " +
-                    "id integer PRIMARY KEY NOT NULL, " +
+                    "id integer PRIMARY KEY AUTOINCREMENT, " +
                     "name text NOT NULL, " +
                     "soiltype integer NOT NULL, " +
                     "planttype integer NOT NULL, " +
