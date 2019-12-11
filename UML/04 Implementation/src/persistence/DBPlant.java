@@ -57,7 +57,35 @@ public class DBPlant {
             ps.executeUpdate();
 
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    public static void editPlant(Plant p) {
+
+        String query = "UPDATE plant SET name = ? , " +
+                "soiltype = ? , " +
+                "planttype = ? , " +
+                "lighttolerance = ? , " +
+                "extra = ? " +
+                "WHERE id = ?;";
+
+        try (Connection conn = DB.connect();
+            PreparedStatement ps = conn.prepareStatement(query)) {
+
+            // set prepared statement values
+            ps.setString(1, p.getName());
+            ps.setInt(2, p.getSoiltype());
+            ps.setInt(3, p.getPlanttype());
+            ps.setInt(4, p.getLighttolerance());
+            ps.setString(5, p.getExtra());
+            ps.setInt(6, p.getId());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
 
     }
