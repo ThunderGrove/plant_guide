@@ -8,7 +8,7 @@ public class Plant{
     private String comment;
     private String plantName;
 
-    public void Plant(int plantID,
+    public Plant(int plantID,
                       String plantName,
                       int plantType,
                       int soilType,
@@ -23,43 +23,51 @@ public class Plant{
         this.lighttolerance=lighttolerance;
     }
 
-    public int getPlanttype() {
+    public int getPlanttype(){
         return plantType;
     }
 
-    public void setPlantType(int plantType) {
+    public void setPlantType(int plantType){
         this.plantType = plantType;
     }
 
-    public int getSoiltype() {
+    public int getSoiltype(){
         return soilType;
     }
 
-    public void setSoilType(int soilType) {
+    public void setSoilType(int soilType){
         this.soilType = soilType;
     }
 
-    public int getLighttolerance() {
+    public int getLighttolerance(){
         return lighttolerance;
     }
 
-    public void setLighttolerance(int lighttolerance) {
+    public void setLighttolerance(int lighttolerance){
         this.lighttolerance = lighttolerance;
     }
 
-    public String getExtra() {
+    public String getExtra(){
         return comment;
     }
 
-    public void setComment(String comment) {
+    public void setComment(String comment){
         this.comment = comment;
     }
 
-    public String getName() {
+    public String getName(){
         return plantName;
     }
 
-    public void setPlantName(String plantName) {
+    public void setPlantName(String plantName){
         this.plantName = plantName;
+    }
+
+    public int getPlantID(){
+        return plantID;
+    }
+
+    public void setPlantID(int plantID){
+        this.plantID = plantID;
     }
 }
