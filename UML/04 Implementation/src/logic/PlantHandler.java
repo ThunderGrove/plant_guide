@@ -42,6 +42,10 @@ public class PlantHandler{
         return null;
     }
 
+    public ArrayList<Plant>search(){
+        return persistence.getPlants();
+    }
+
     public boolean checkName(String name){
         return persistence.checkName(name);
     }
