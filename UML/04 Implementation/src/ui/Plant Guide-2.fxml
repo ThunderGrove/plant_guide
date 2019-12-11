@@ -13,21 +13,21 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <TreeTableView layoutX="14.0" layoutY="160.0" prefHeight="292.0" prefWidth="743.0">
-              <columns>
-                <TreeTableColumn prefWidth="58.0" text="ID" />
-                <TreeTableColumn minWidth="0.0" prefWidth="145.0" text="Navn" />
-                  <TreeTableColumn prefWidth="86.0" text="Kategori" />
-                  <TreeTableColumn prefWidth="75.0" text="Status" />
-                  <TreeTableColumn prefWidth="379.0" text="Info" />
-              </columns>
-            </TreeTableView>
             <TextField layoutX="14.0" layoutY="126.0" prefHeight="25.0" prefWidth="641.0" />
             <Button layoutX="665.0" layoutY="126.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Søg" />
             <Button layoutX="225.0" layoutY="91.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Slet Plante" />
             <Button layoutX="118.0" layoutY="91.0" mnemonicParsing="false" onAction="#moveToEditWindow" prefHeight="25.0" prefWidth="88.0" text="Edit Plante" />
             <Button layoutX="14.0" layoutY="91.0" mnemonicParsing="false" onAction="#moveToCreateWindow" prefHeight="25.0" prefWidth="88.0" text="Ny Plante" />
             <ToggleButton layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="48.0" text="Hjælp" />
+            <TableView fx:id="plantList" layoutX="14.0" layoutY="169.0" prefHeight="285.0" prefWidth="747.0">
+              <columns>
+                <TableColumn fx:id="navnColumn" prefWidth="116.79999351501465" text="Navn" />
+                  <TableColumn fx:id="plantetypeColumn" prefWidth="114.39996337890625" text="Plantetype" />
+                <TableColumn fx:id="jordtypeColumn" prefWidth="89.5999755859375" text="Jordtype" />
+                  <TableColumn fx:id="lystoleranceColumn" prefWidth="102.4000244140625" text="Lystolerance" />
+                  <TableColumn fx:id="infoColumn" prefWidth="322.39998168945317" text="Info" />
+              </columns>
+            </TableView>
          </children>
     </AnchorPane>
   </children>
