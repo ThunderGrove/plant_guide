@@ -2,9 +2,36 @@ package persistence;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBSoiltype {
+
+    public static Soiltype getSoiltype(int id) {
+        Soiltype st = null;
+
+        String query = "SELECT * FROM soiltype WHERE id = ? LIMIT 1";
+
+        try (Connection conn = DB.connect();
+            PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                st = new Soiltype(
+                        rs.getInt("id"),
+                        rs.getString("name")
+                );
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return st;
+
+    }
 
     public static void createSoiltype(Soiltype st) {
 
