@@ -4,11 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import logic.SoilType;
 
-public class DBSoiltype {
+public class DBSoilType {
 
-    public static Soiltype getSoiltype(int id) {
-        Soiltype st = null;
+    public static SoilType getSoilType(int id) {
+        SoilType st = null;
 
         String query = "SELECT * FROM soiltype WHERE id = ? LIMIT 1";
 
@@ -19,7 +20,7 @@ public class DBSoiltype {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                st = new Soiltype(
+                st = new SoilType(
                         rs.getInt("id"),
                         rs.getString("name")
                 );
@@ -33,7 +34,7 @@ public class DBSoiltype {
 
     }
 
-    public static void createSoiltype(Soiltype st) {
+    public static void createSoilType(SoilType st) {
 
         String query = "INSERT INTO soiltype(name) VALUES(?)";
 
@@ -50,7 +51,7 @@ public class DBSoiltype {
 
     }
 
-    public static void editSoiltype(Soiltype st) {
+    public static void editSoilType(SoilType st) {
 
         String query = "UPDATE soiltype SET name = ? " +
                 "WHERE id = ?";
@@ -69,14 +70,14 @@ public class DBSoiltype {
 
     }
 
-    public static void deleteSoiltype(Soiltype st) {
+    public static void deleteSoilType(SoilType st) {
 
         String query = "DELETE FROM plant WHERE id = ?";
 
         try (Connection conn = DB.connect();
             PreparedStatement ps = conn.prepareStatement(query)) {
 
-            ps.setInt(1, st.getId);
+            ps.setInt(1, st.getId());
 
             ps.executeUpdate();
 
