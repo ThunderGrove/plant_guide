@@ -8,6 +8,8 @@ public class Plant{
     private String comment;
     private String plantName;
 
+    public Plant(){}
+
     public Plant(int plantID,
                       String plantName,
                       int plantType,

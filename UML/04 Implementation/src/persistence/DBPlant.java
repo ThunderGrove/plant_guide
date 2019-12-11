@@ -14,8 +14,8 @@ public class DBPlant {
         int size = 0;
 
         // sql query to be executed
-        String query = "SELECT count(id) FROM plant" +
-                    "WHERE name = ?";
+        String query = "SELECT count(id) as count FROM plant " +
+                "WHERE name = ?";
 
         // try block with connection and prepared statement resources
         // resources are automatically terminated at the end of the block
@@ -25,10 +25,9 @@ public class DBPlant {
             // set first value in prepared statement to the name parameter
             ps.setString(1, name);
             ResultSet rs = ps.executeQuery();
-            // go to the last row of the result set
-            rs.last();
-            size = rs.getRow();
-
+            // go to the next row of the result set
+            rs.next();
+            size = rs.getInt("count");
             if (size > 0) {
                 nameExists = true;
             }
@@ -163,11 +162,11 @@ public class DBPlant {
 
     public static void editPlant(Plant p) {
 
-        String query = "UPDATE plant SET name = ? , " +
+        String query = "UPDATE plant SET name = '?' , " +
                 "soiltype = ? , " +
                 "planttype = ? , " +
                 "lighttolerance = ? , " +
-                "extra = ? " +
+                "extra = '?' " +
                 "WHERE id = ?;";
 
         try (Connection conn = DB.connect();

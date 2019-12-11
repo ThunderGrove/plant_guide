@@ -11,7 +11,7 @@ public class PlantHandler{
     }
 
     public void createPlant(String plantName,int plantType,int soilType,int lighttolerance,String comment){
-        Plant plant=null;
+        Plant plant=new Plant();
         plant.setPlantName(plantName);
         plant.setPlantType(plantType);
         plant.setSoilType(soilType);
