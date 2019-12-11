@@ -1,7 +1,10 @@
 package persistence;
 
+import logic.PlantHandler;
+
 import javax.xml.transform.Result;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DBPlant {
 
@@ -67,7 +70,36 @@ public class DBPlant {
 
     }
 
+    public static ArrayList<Plant> getPlants() {
+        ArrayList<Plant> plants = new ArrayList<Plant>();
 
+        String query = "SELECT * FROM plant";
+
+        try (Connection conn = DB.connect();
+            Statement st = conn.createStatement()) {
+
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next()) {
+                Plant plant = new Plant(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getInt("soiltype"),
+                        rs.getInt("planttype"),
+                        rs.getInt("lighttolerance"),
+                        rs.getString("extra")
+                );
+
+                plants.add(plant);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return plants;
+
+    }
 
     public static void createPlant(Plant p) {
 
