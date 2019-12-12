@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Modality;
@@ -27,6 +28,9 @@ public class DetailWindowController {
 
     @FXML TextArea textArea;
 
+    @FXML Button edit;
+    @FXML Button delete;
+
     public void initialize() {
         nameLabel.setText(name);
         pTypeLabel.setText(pType);
@@ -39,6 +43,13 @@ public class DetailWindowController {
 
     @FXML
     public void moveToEditWindow() throws IOException {
+        EditWindowController.currentPlantId = currentPlantId;
+        EditWindowController.name = name;
+        EditWindowController.pType = pType;
+        EditWindowController.jType = jType;
+        EditWindowController.light = light;
+        EditWindowController.comment = comment;
+
         Parent root = FXMLLoader.load(getClass().getResource("EditWindow.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -46,8 +57,9 @@ public class DetailWindowController {
         stage.setScene(scene);
         stage.setTitle("Rediger plante");
         stage.setResizable(false);
-        stage.initOwner(Main.window);
+        stage.initOwner(edit.getScene().getWindow());
         stage.initModality(Modality.WINDOW_MODAL);
+
         stage.show();
     }
 
@@ -60,8 +72,9 @@ public class DetailWindowController {
         stage.setScene(scene);
         stage.setTitle("Slet plante - bekræft sletning");
         stage.setResizable(false);
-        stage.initOwner(Main.window);
+        stage.initOwner(delete.getScene().getWindow());
         stage.initModality(Modality.WINDOW_MODAL);
+
         stage.show();
     }
 }

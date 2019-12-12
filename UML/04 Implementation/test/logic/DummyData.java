@@ -20,6 +20,7 @@ public class DummyData{
         dbPlantType.create(new PlantType(1,"Busk"));
         dbPlantType.create(new PlantType(2,"Stauder"));
         dbPlantType.create(new PlantType(3,"Slyngplanter"));
+        dbPlantType.create(new PlantType(4, "Løgplanter"));
         dbLightTolerance.create(new LightTolerance(1,"Sol"));
         dbLightTolerance.create(new LightTolerance(2,"Skygge"));
         dbLightTolerance.create(new LightTolerance(3,"Tolerant"));

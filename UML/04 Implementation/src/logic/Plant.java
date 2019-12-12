@@ -33,9 +33,13 @@ public class Plant{
         this.plantType = plantType;
     }
 
+    public String getPlantTypeUI() {return plantType.getName();}
+
     public SoilType getSoilType(){
         return soilType;
     }
+
+    public String getSoilTypeUI() {return soilType.getName();}
 
     public void setSoilType(SoilType soilType){
         this.soilType = soilType;
@@ -44,6 +48,8 @@ public class Plant{
     public LightTolerance getLighttolerance(){
         return lighttolerance;
     }
+
+    public String getLighttoleranceUI() {return lighttolerance.getName();}
 
     public void setLighttolerance(LightTolerance lighttolerance){
         this.lighttolerance = lighttolerance;

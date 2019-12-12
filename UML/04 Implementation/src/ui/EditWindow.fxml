@@ -13,7 +13,7 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <Button layoutX="618.0" layoutY="422.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Godkend" />
+            <Button fx:id="confirm" layoutX="618.0" layoutY="422.0" mnemonicParsing="false" onAction="#editPlant" prefHeight="25.0" prefWidth="88.0" text="Godkend" />
             <ToggleButton layoutX="706.0" layoutY="19.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="48.0" text="Hjælp" />
             <Label layoutX="339.0" layoutY="70.0" prefHeight="38.0" prefWidth="94.0" text="Edit Plante" textAlignment="CENTER">
                <font>
