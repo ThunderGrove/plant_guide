@@ -25,7 +25,7 @@
                   <TableColumn fx:id="plantetypeColumn" prefWidth="114.39996337890625" text="Plantetype" />
                 <TableColumn fx:id="jordtypeColumn" prefWidth="89.5999755859375" text="Jordtype" />
                   <TableColumn fx:id="lystoleranceColumn" prefWidth="102.4000244140625" text="Lystolerance" />
-                  <TableColumn fx:id="infoColumn" prefWidth="322.39998168945317" text="Info" />
+                  <TableColumn fx:id="infoColumn" prefWidth="315.39996337890625" text="Info" />
               </columns>
             </TableView>
          </children>

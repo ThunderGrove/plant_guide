@@ -12,14 +12,14 @@ class PlantHandlerTest{
 
     void createDummyData(){
         persistence.DB.createTables();
-        persistence.DBSoilType.createSoilType(new SoilType(1,"1"));
-        persistence.DBSoilType.createSoilType(new SoilType(2,"2"));
-        persistence.DBSoilType.createSoilType(new SoilType(3,"3"));
-        persistence.DBSoilType.createSoilType(new SoilType(4,"4"));
-        persistence.DBPlantType.createPlantType(new PlantType(1,"1"));
-        persistence.DBPlantType.createPlantType(new PlantType(2,"2"));
-        persistence.DBPlantType.createPlantType(new PlantType(3,"3"));
-        persistence.DBLightTolerance.createLightTolerance(new LightTolerance(1,"1"));
+        persistence.DBSoilType.create(new SoilType(1,"1"));
+        persistence.DBSoilType.create(new SoilType(2,"2"));
+        persistence.DBSoilType.create(new SoilType(3,"3"));
+        persistence.DBSoilType.create(new SoilType(4,"4"));
+        persistence.DBPlantType.create(new PlantType(1,"1"));
+        persistence.DBPlantType.create(new PlantType(2,"2"));
+        persistence.DBPlantType.create(new PlantType(3,"3"));
+        persistence.DBLightTolerance.create(new LightTolerance(1,"1"));
         ph.createPlant("Hortensia",1,4,1,"Hydrangéa");
 
         dummyDataCreated=true;

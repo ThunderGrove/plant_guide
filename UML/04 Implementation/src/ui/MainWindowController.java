@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logic.Plant;
+import logic.PlantHandler;
 import persistence.DBPlant;
 
 import java.io.IOException;
@@ -58,12 +59,11 @@ public class MainWindowController {
     }
 
     public void showPlants() {
-        ArrayList<Plant> array = DBPlant.getPlants();
+        PlantHandler plantHandler = new PlantHandler();
+        ArrayList<Plant> array = plantHandler.search();
 
         ObservableList<Plant> list = FXCollections.observableArrayList();
 
-        //Test tabellen.
-        Plant p = new Plant(1, "Rose", 0, 0, 0, "Test");
         list.addAll(array);
 
         navnColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
