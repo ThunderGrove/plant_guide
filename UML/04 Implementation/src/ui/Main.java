@@ -12,7 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         window = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("Plant Guide-2.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
         window.setTitle("Plant Guide");
         window.setScene(new Scene(root, 771.0, 468.0));
         window.setResizable(false);
