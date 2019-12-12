@@ -44,10 +44,18 @@ public class DBPlant {
         SoilType soilType = null;
         LightTolerance lightTolerance = null;
 
-        String query = "SELECT * FROM plant AS p " +
+        String query = "SELECT p.id," +
+                "p.name," +
+                "pt.id AS ptid," +
+                "pt.name AS planttype," +
+                "st.id AS stid," +
+                "st.name AS soiltype," +
+                "lt.id AS ltid," +
+                "lt.name AS lighttolerance," +
+                "p.extra FROM plant AS p " +
                 "INNER JOIN planttype AS pt ON p.planttype=pt.id " +
                 "INNER JOIN soiltype AS st ON p.soiltype=st.id " +
-                "INNER JOIN lighttolerance AS lt ON p.lighttolerance=lt.id" +
+                "INNER JOIN lighttolerance AS lt ON p.lighttolerance=lt.id " +
                 "WHERE p.id = ? LIMIT 1";
 
         try (Connection conn = DB.connect();
@@ -58,18 +66,18 @@ public class DBPlant {
 
             if (rs.next()) {
                 plantType = new PlantType(
-                        rs.getInt("pt.id"),
-                        rs.getString("pt.name")
+                        rs.getInt("ptid"),
+                        rs.getString("planttype")
                 );
 
                 soilType = new SoilType(
-                        rs.getInt("st.id"),
-                        rs.getString("st.name")
+                        rs.getInt("stid"),
+                        rs.getString("soiltype")
                 );
 
                 lightTolerance = new LightTolerance(
-                        rs.getInt("lt.id"),
-                        rs.getString("lt.name")
+                        rs.getInt("ltid"),
+                        rs.getString("lighttolerance")
                 );
 
                 plant = new Plant(
@@ -94,7 +102,15 @@ public class DBPlant {
     public ArrayList<Plant> getPlants() {
         ArrayList<Plant> plants = new ArrayList<Plant>();
 
-        String query = "SELECT * FROM plant AS p" +
+        String query = "SELECT p.id," +
+                "p.name," +
+                "pt.id AS ptid," +
+                "pt.name AS planttype," +
+                "st.id AS stid," +
+                "st.name AS soiltype," +
+                "lt.id AS ltid," +
+                "lt.name AS lighttolerance," +
+                "p.extra FROM plant AS p" +
                 "INNER JOIN planttype AS pt ON p.planttype=pt.id " +
                 "INNER JOIN soiltype AS st ON p.soiltype=st.id " +
                 "INNER JOIN lighttolerance AS lt ON p.lighttolerance=lt.id";
@@ -107,18 +123,18 @@ public class DBPlant {
             while (rs.next()) {
 
                 PlantType plantType = new PlantType(
-                        rs.getInt("pt.id"),
-                        rs.getString("pt.name")
+                        rs.getInt("ptid"),
+                        rs.getString("planttype")
                 );
 
                 SoilType soilType = new SoilType(
-                        rs.getInt("st.id"),
-                        rs.getString("st.name")
+                        rs.getInt("stid"),
+                        rs.getString("soiltype")
                 );
 
                 LightTolerance lightTolerance = new LightTolerance(
-                        rs.getInt("lt.id"),
-                        rs.getString("lt.name")
+                        rs.getInt("ltid"),
+                        rs.getString("lighttolerance")
                 );
 
                 Plant plant = new Plant(
@@ -128,7 +144,6 @@ public class DBPlant {
                         plantType,
                         lightTolerance,
                         rs.getString("extra")
-
                 );
 
                 plants.add(plant);
@@ -145,7 +160,15 @@ public class DBPlant {
     public ArrayList<Plant> getPlants(String request) {
         ArrayList<Plant> plants = new ArrayList<>();
 
-        String query = "SELECT * FROM plant AS p " +
+        String query = "SELECT p.id," +
+                "p.name," +
+                "pt.id AS ptid," +
+                "pt.name AS planttype," +
+                "st.id AS stid," +
+                "st.name AS soiltype," +
+                "lt.id AS ltid," +
+                "lt.name AS lighttolerance," +
+                "p.extra FROM plant AS p " +
                 "INNER JOIN soiltype AS st ON p.soiltype=st.id " +
                 "INNER JOIN planttype AS pt ON p.planttype=pt.id " +
                 "INNER JOIN lighttolerance AS lt ON p.lighttolerance=lt.id " +
@@ -160,18 +183,18 @@ public class DBPlant {
 
             while (rs.next()) {
                 PlantType plantType = new PlantType(
-                        rs.getInt("pt.id"),
-                        rs.getString("pt.name")
+                        rs.getInt("ptid"),
+                        rs.getString("planttype")
                 );
 
                 SoilType soilType = new SoilType(
-                        rs.getInt("st.id"),
-                        rs.getString("st.name")
+                        rs.getInt("stid"),
+                        rs.getString("soiltype")
                 );
 
                 LightTolerance lightTolerance = new LightTolerance(
-                        rs.getInt("lt.id"),
-                        rs.getString("lt.name")
+                        rs.getInt("ltid"),
+                        rs.getString("lighttolerance")
                 );
 
                 Plant plant = new Plant(
@@ -219,9 +242,9 @@ public class DBPlant {
     public void edit(Plant p) {
 
         String query = "UPDATE plant SET name = ?, " +
-                "soiltype = ? , " +
-                "planttype = ? , " +
-                "lighttolerance = ? , " +
+                "soiltype = ?, " +
+                "planttype = ?, " +
+                "lighttolerance = ?, " +
                 "extra = ? " +
                 "WHERE id = ?;";
 
