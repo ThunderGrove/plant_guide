@@ -2,6 +2,8 @@ package logic;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlantHandlerTest{
@@ -35,6 +37,31 @@ class PlantHandlerTest{
 
     @Test
     void getPlant(){
+        if(!dummyDataCreated){
+            createDummyData();
+        }
+
+        Plant plantOne=ph.getPlant(1);
+
+        assertEquals(1,plantOne.getPlantID(),"plantID should be 1.");
+        assertEquals(1,plantOne.getPlanttype(),"Plant type should be 1.");
+        assertEquals(4,plantOne.getSoilType(),"Soil type should be 4.");
+        assertEquals(1,plantOne.getLighttolerance(),"Light tolerance should be 1.");
+        assertEquals("Hortensia",plantOne.getName(),"Plant name should be Hortensia.");
+        assertEquals("Hydrangéa",plantOne.getExtra(),"The expected data in extra was incorrect.");
+    }
+
+    @Test
+    void search(){
+        if(!dummyDataCreated){
+            createDummyData();
+        }
+
+        ArrayList<Plant> searchOne=ph.search("Hydrangéa");
+        assertEquals(1,searchOne.size(),"Number of search results should only be one");
+
+        ArrayList<Plant> searchTwo=ph.search("monster");
+        assertEquals(0,searchOne.size(),"Number of search results should zero");
     }
 
     @Test
@@ -44,9 +71,4 @@ class PlantHandlerTest{
     @Test
     void deletePlant(){
     }
-
-    @Test
-    void search(){
-    }
-
 }

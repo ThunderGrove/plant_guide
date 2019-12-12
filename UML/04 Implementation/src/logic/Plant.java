@@ -11,11 +11,11 @@ public class Plant{
     public Plant(){}
 
     public Plant(int plantID,
-                      String plantName,
-                      int plantType,
-                      int soilType,
-                      int lighttolerance,
-                      String comment
+                 String plantName,
+                 int soilType,
+                 int plantType,
+                 int lighttolerance,
+                 String comment
             ){
         this.plantID=plantID;
         this.comment=comment;
