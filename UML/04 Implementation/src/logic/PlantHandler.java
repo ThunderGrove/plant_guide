@@ -10,7 +10,7 @@ public class PlantHandler{
         return persistence.getPlant(plantId);
     }
 
-    public void createPlant(String plantName,int plantType,int soilType,int lighttolerance,String comment){
+    public void createPlant(String plantName, PlantType plantType, SoilType soilType, LightTolerance lighttolerance, String comment){
         Plant plant=new Plant();
         plant.setPlantName(plantName);
         plant.setPlantType(plantType);
@@ -21,7 +21,7 @@ public class PlantHandler{
         persistence.create(plant);
     }
 
-    public void editPlant(int plantId,String plantName,int plantType,int soilType,int lighttolerance,String comment){
+    public void editPlant(int plantId, String plantName, PlantType plantType, SoilType soilType, LightTolerance lighttolerance, String comment){
         Plant plant=new Plant();
         plant.setPlantID(plantId);
         plant.setPlantName(plantName);

@@ -2,9 +2,9 @@ package logic;
 
 public class Plant{
     private int plantID;
-    private int plantType;
-    private int soilType;
-    private int lighttolerance;
+    private PlantType plantType;
+    private SoilType soilType;
+    private LightTolerance lighttolerance;
     private String comment;
     private String plantName;
 
@@ -12,9 +12,9 @@ public class Plant{
 
     public Plant(int plantID,
                  String plantName,
-                 int soilType,
-                 int plantType,
-                 int lighttolerance,
+                 SoilType soilType,
+                 PlantType plantType,
+                 LightTolerance lighttolerance,
                  String comment
             ){
         this.plantID=plantID;
@@ -25,27 +25,27 @@ public class Plant{
         this.lighttolerance=lighttolerance;
     }
 
-    public int getPlanttype(){
+    public PlantType getPlantType(){
         return plantType;
     }
 
-    public void setPlantType(int plantType){
+    public void setPlantType(PlantType plantType){
         this.plantType = plantType;
     }
 
-    public int getSoilType(){
+    public SoilType getSoilType(){
         return soilType;
     }
 
-    public void setSoilType(int soilType){
+    public void setSoilType(SoilType soilType){
         this.soilType = soilType;
     }
 
-    public int getLighttolerance(){
+    public LightTolerance getLighttolerance(){
         return lighttolerance;
     }
 
-    public void setLighttolerance(int lighttolerance){
+    public void setLighttolerance(LightTolerance lighttolerance){
         this.lighttolerance = lighttolerance;
     }
 
