@@ -1,11 +1,10 @@
 package persistence;
 
-import logic.PlantHandler;
+import logic.*;
 
 import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
-import logic.Plant;
 
 public class DBPlant {
 
@@ -41,8 +40,15 @@ public class DBPlant {
 
     public Plant getPlant(int id) {
         Plant plant = null;
+        PlantType plantType = null;
+        SoilType soilType = null;
+        LightTolerance lightTolerance = null;
 
-        String query = "SELECT * FROM plant WHERE id = ? LIMIT 1";
+        String query = "SELECT * FROM plant AS p " +
+                "INNER JOIN planttype AS pt ON p.planttype=pt.id " +
+                "INNER JOIN soiltype AS st ON p.soiltype=st.id " +
+                "INNER JOIN lighttolerance AS lt ON p.lighttolerance=lt.id" +
+                "WHERE p.id = ? LIMIT 1";
 
         try (Connection conn = DB.connect();
              PreparedStatement ps = conn.prepareStatement(query)) {
@@ -51,12 +57,27 @@ public class DBPlant {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
+                plantType = new PlantType(
+                        rs.getInt("pt.id"),
+                        rs.getString("pt.name")
+                );
+
+                soilType = new SoilType(
+                        rs.getInt("st.id"),
+                        rs.getString("st.name")
+                );
+
+                lightTolerance = new LightTolerance(
+                        rs.getInt("lt.id"),
+                        rs.getString("lt.name")
+                );
+
                 plant = new Plant(
                         rs.getInt("id"),
                         rs.getString("name"),
-                        rs.getInt("soiltype"),
-                        rs.getInt("planttype"),
-                        rs.getInt("lighttolerance"),
+                        soilType,
+                        plantType,
+                        lightTolerance,
                         rs.getString("extra")
 
                 );
