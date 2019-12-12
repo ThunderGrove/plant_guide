@@ -17,7 +17,7 @@ class PlantHandlerTest{
         persistence.DBPlantType.create(new PlantType(1,"1"));
         persistence.DBPlantType.create(new PlantType(2,"2"));
         persistence.DBPlantType.create(new PlantType(3,"3"));
-        persistence.DBLightTolerance.createLightTolerance(new LightTolerance(1,"1"));
+        persistence.DBLightTolerance.create(new LightTolerance(1,"1"));
         ph.createPlant("Hortensia",1,4,1,"Hydrangéa");
 
         dummyDataCreated=true;
