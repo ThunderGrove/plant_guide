@@ -159,12 +159,27 @@ public class DBPlant {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                PlantType plantType = new PlantType(
+                        rs.getInt("pt.id"),
+                        rs.getString("pt.name")
+                );
+
+                SoilType soilType = new SoilType(
+                        rs.getInt("st.id"),
+                        rs.getString("st.name")
+                );
+
+                LightTolerance lightTolerance = new LightTolerance(
+                        rs.getInt("lt.id"),
+                        rs.getString("lt.name")
+                );
+
                 Plant plant = new Plant(
                         rs.getInt("id"),
                         rs.getString("name"),
-                        rs.getInt("planttype"),
-                        rs.getInt("soiltype"),
-                        rs.getInt("lighttolerance"),
+                        soilType,
+                        plantType,
+                        lightTolerance,
                         rs.getString("extra")
                 );
 
