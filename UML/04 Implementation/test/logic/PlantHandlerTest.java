@@ -65,5 +65,19 @@ class PlantHandlerTest{
 
     @Test
     void deletePlant(){
+        ArrayList<Plant> result=ph.search("JustATest");
+
+        if(result.size()>0){
+            ph.deletePlant(result.get(0).getPlantID());
+            assertNotEquals(result.size(),ph.search("JustATest").size(),"Nothing was deleted.");
+        }
+
+    }
+
+    @Test
+    void createPlant(){
+        ph.createPlant("JustATest",1,4,1,"This is just a test.");
+
+        assertNotEquals(0,ph.search("JustATest").size(),"Unable to add a new row to db.");
     }
 }
