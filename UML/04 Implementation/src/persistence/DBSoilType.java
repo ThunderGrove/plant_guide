@@ -8,7 +8,7 @@ import logic.SoilType;
 
 public class DBSoilType {
 
-    public static SoilType get(int id) {
+    public SoilType get(int id) {
         SoilType st = null;
 
         String query = "SELECT * FROM soiltype WHERE id = ? LIMIT 1";
@@ -34,7 +34,7 @@ public class DBSoilType {
 
     }
 
-    public static void create(SoilType st) {
+    public void create(SoilType st) {
 
         String query = "INSERT INTO soiltype(name) VALUES(?)";
 
@@ -51,7 +51,7 @@ public class DBSoilType {
 
     }
 
-    public static void edit(SoilType st) {
+    public void edit(SoilType st) {
 
         String query = "UPDATE soiltype SET name = ? " +
                 "WHERE id = ?";
@@ -70,7 +70,7 @@ public class DBSoilType {
 
     }
 
-    public static void delete(SoilType st) {
+    public void delete(SoilType st) {
 
         String query = "DELETE FROM plant WHERE id = ?";
 

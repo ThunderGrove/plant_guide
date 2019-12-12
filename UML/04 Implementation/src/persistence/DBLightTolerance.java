@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class DBLightTolerance {
 
-    public static LightTolerance get(int id) {
+    public LightTolerance get(int id) {
         LightTolerance lt = null;
 
         String query = "SELECT * FROM lighttolerance WHERE id = ? LIMIT 1";
@@ -34,7 +34,7 @@ public class DBLightTolerance {
         return lt;
     }
 
-    public static void create(LightTolerance lt) {
+    public void create(LightTolerance lt) {
         String query = "INSERT INTO lighttolerance(name) VALUES(?)";
 
         try (Connection conn = DB.connect();
@@ -49,7 +49,7 @@ public class DBLightTolerance {
         }
     }
 
-    public static void edit(LightTolerance lt) {
+    public void edit(LightTolerance lt) {
         String query = "UPDATE lighttolerance SET name = ? " +
                 "WHERE id = ?";
 
@@ -66,7 +66,7 @@ public class DBLightTolerance {
         }
     }
 
-    public static void delete(LightTolerance lt) {
+    public void delete(LightTolerance lt) {
         String query = "DELETE FROM lighttolerance WHERE id = ?";
 
         try (Connection conn = DB.connect();

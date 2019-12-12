@@ -9,7 +9,7 @@ import logic.Plant;
 
 public class DBPlant {
 
-    public static boolean checkName(String name) {
+    public boolean checkName(String name) {
         boolean nameExists = false;
         int size = 0;
 
@@ -39,7 +39,7 @@ public class DBPlant {
         return nameExists;
     }
 
-    public static Plant getPlant(int id) {
+    public Plant getPlant(int id) {
         Plant plant = null;
 
         String query = "SELECT * FROM plant WHERE id = ? LIMIT 1";
@@ -70,7 +70,7 @@ public class DBPlant {
 
     }
 
-    public static ArrayList<Plant> getPlants() {
+    public ArrayList<Plant> getPlants() {
         ArrayList<Plant> plants = new ArrayList<Plant>();
 
         String query = "SELECT * FROM plant";
@@ -101,7 +101,7 @@ public class DBPlant {
 
     }
 
-    public static ArrayList<Plant> getPlants(String request) {
+    public ArrayList<Plant> getPlants(String request) {
         ArrayList<Plant> plants = new ArrayList<Plant>();
 
         String query = "SELECT * FROM plant AS p " +
@@ -137,7 +137,7 @@ public class DBPlant {
         return plants;
     }
 
-    public static void create(Plant p) {
+    public void create(Plant p) {
 
         // set query string
         String query = "INSERT INTO plant(name, soiltype, planttype, lighttolerance, extra) VALUES(?,?,?,?,?)";
@@ -160,7 +160,7 @@ public class DBPlant {
 
     }
 
-    public static void edit(Plant p) {
+    public void edit(Plant p) {
 
         String query = "UPDATE plant SET name = '?' , " +
                 "soiltype = ? , " +
@@ -188,7 +188,7 @@ public class DBPlant {
 
     }
 
-    public static void delete(Plant p) {
+    public void delete(Plant p) {
 
         String query = "DELETE FROM plant WHERE id = ?";
 

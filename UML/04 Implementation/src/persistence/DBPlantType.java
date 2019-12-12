@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class DBPlantType {
 
-    public static PlantType get(int id) {
+    public PlantType get(int id) {
         PlantType pt = null;
 
         String query = "SELECT * FROM planttype WHERE id = ? LIMIT 1";
@@ -35,7 +35,7 @@ public class DBPlantType {
 
     }
 
-    public static void create(PlantType pt) {
+    public void create(PlantType pt) {
         String query = "INSERT INTO planttype(name) VALUES(?)";
 
         try (Connection conn = DB.connect();
@@ -50,7 +50,7 @@ public class DBPlantType {
         }
     }
 
-    public static void edit(PlantType pt) {
+    public void edit(PlantType pt) {
         String query = "UPDATE planttype SET name = ? " +
                 "WHERE id = ?";
 
@@ -67,7 +67,7 @@ public class DBPlantType {
         }
     }
 
-    public static void delete(PlantType pt) {
+    public void delete(PlantType pt) {
         String query = "DELETE FROM plant WHERE id = ?";
 
         try (Connection conn = DB.connect();
