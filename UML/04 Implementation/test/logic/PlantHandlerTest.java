@@ -10,10 +10,10 @@ class PlantHandlerTest{
 
     void createDummyData(){
         persistence.DB.createTables();
-        persistence.DBSoilType.createSoilType(new SoilType(1,"1"));
-        persistence.DBSoilType.createSoilType(new SoilType(2,"2"));
-        persistence.DBSoilType.createSoilType(new SoilType(3,"3"));
-        persistence.DBSoilType.createSoilType(new SoilType(4,"4"));
+        persistence.DBSoilType.create(new SoilType(1,"1"));
+        persistence.DBSoilType.create(new SoilType(2,"2"));
+        persistence.DBSoilType.create(new SoilType(3,"3"));
+        persistence.DBSoilType.create(new SoilType(4,"4"));
         persistence.DBPlantType.create(new PlantType(1,"1"));
         persistence.DBPlantType.create(new PlantType(2,"2"));
         persistence.DBPlantType.create(new PlantType(3,"3"));
