@@ -137,7 +137,7 @@ public class DBPlant {
         return plants;
     }
 
-    public static void createPlant(Plant p) {
+    public static void create(Plant p) {
 
         // set query string
         String query = "INSERT INTO plant(name, soiltype, planttype, lighttolerance, extra) VALUES(?,?,?,?,?)";
@@ -160,7 +160,7 @@ public class DBPlant {
 
     }
 
-    public static void editPlant(Plant p) {
+    public static void edit(Plant p) {
 
         String query = "UPDATE plant SET name = '?' , " +
                 "soiltype = ? , " +
@@ -188,7 +188,7 @@ public class DBPlant {
 
     }
 
-    public static void deletePlant(Plant p) {
+    public static void delete(Plant p) {
 
         String query = "DELETE FROM plant WHERE id = ?";
 

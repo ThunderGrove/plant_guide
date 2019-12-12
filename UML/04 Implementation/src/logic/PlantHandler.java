@@ -18,7 +18,7 @@ public class PlantHandler{
         plant.setLighttolerance(lighttolerance);
         plant.setComment(comment);
 
-        persistence.createPlant(plant);
+        persistence.create(plant);
     }
 
     public void editPlant(int plantId,String plantName,int plantType,int soilType,int lighttolerance,String comment){
@@ -29,13 +29,13 @@ public class PlantHandler{
         plant.setSoilType(soilType);
         plant.setLighttolerance(lighttolerance);
         plant.setComment(comment);
-        persistence.editPlant(plant);
+        persistence.edit(plant);
     }
 
     public void deletePlant(int plantId){
         Plant plant=new Plant();;
         plant.setPlantID(plantId);
-        persistence.deletePlant(plant);
+        persistence.delete(plant);
     }
 
     public ArrayList<Plant>search(String request){
