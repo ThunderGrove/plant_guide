@@ -162,11 +162,11 @@ public class DBPlant {
 
     public void edit(Plant p) {
 
-        String query = "UPDATE plant SET name = '?' , " +
+        String query = "UPDATE plant SET name = ?, " +
                 "soiltype = ? , " +
                 "planttype = ? , " +
                 "lighttolerance = ? , " +
-                "extra = '?' " +
+                "extra = ? " +
                 "WHERE id = ?;";
 
         try (Connection conn = DB.connect();
