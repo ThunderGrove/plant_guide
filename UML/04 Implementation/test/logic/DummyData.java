@@ -23,7 +23,8 @@ public class DummyData{
         dbLightTolerance.create(new LightTolerance(1,"Sol"));
         dbLightTolerance.create(new LightTolerance(2,"Skygge"));
         dbLightTolerance.create(new LightTolerance(3,"Tolerant"));
-        ph.createPlant("Hortensia",1,4,1,"Hydrangéa");
+
+        ph.createPlant("Hortensia",new PlantType(1,"Busk"),new SoilType(4,"Sur"),new LightTolerance(1,"Sol"),"Hydrangéa");
 
         dummyDataCreated=true;
     }
