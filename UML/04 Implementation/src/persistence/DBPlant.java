@@ -94,7 +94,10 @@ public class DBPlant {
     public ArrayList<Plant> getPlants() {
         ArrayList<Plant> plants = new ArrayList<Plant>();
 
-        String query = "SELECT * FROM plant";
+        String query = "SELECT * FROM plant AS p" +
+                "INNER JOIN planttype AS pt ON p.planttype=pt.id " +
+                "INNER JOIN soiltype AS st ON p.soiltype=st.id " +
+                "INNER JOIN lighttolerance AS lt ON p.lighttolerance=lt.id";
 
         try (Connection conn = DB.connect();
             Statement st = conn.createStatement()) {
@@ -102,13 +105,30 @@ public class DBPlant {
             ResultSet rs = st.executeQuery(query);
 
             while (rs.next()) {
+
+                PlantType plantType = new PlantType(
+                        rs.getInt("pt.id"),
+                        rs.getString("pt.name")
+                );
+
+                SoilType soilType = new SoilType(
+                        rs.getInt("st.id"),
+                        rs.getString("st.name")
+                );
+
+                LightTolerance lightTolerance = new LightTolerance(
+                        rs.getInt("lt.id"),
+                        rs.getString("lt.name")
+                );
+
                 Plant plant = new Plant(
                         rs.getInt("id"),
                         rs.getString("name"),
-                        rs.getInt("soiltype"),
-                        rs.getInt("planttype"),
-                        rs.getInt("lighttolerance"),
+                        soilType,
+                        plantType,
+                        lightTolerance,
                         rs.getString("extra")
+
                 );
 
                 plants.add(plant);
