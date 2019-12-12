@@ -14,7 +14,7 @@ public class Plant{
                  String plantName,
                  SoilType soilType,
                  PlantType plantType,
-                 LightTolerance lighttolerance,
+                 LightTolerance lightTolerance,
                  String comment
             ){
         this.plantID=plantID;
@@ -22,7 +22,7 @@ public class Plant{
         this.plantName=plantName;
         this.plantType=plantType;
         this.soilType=soilType;
-        this.lighttolerance=lighttolerance;
+        this.lighttolerance=lightTolerance;
     }
 
     public PlantType getPlantType(){
