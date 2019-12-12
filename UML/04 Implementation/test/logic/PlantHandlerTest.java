@@ -1,25 +1,32 @@
 package logic;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
+
+import persistence.DBLightTolerance;
+import persistence.DBPlant;
+import persistence.DBPlantType;
+import persistence.DBSoilType;
 
 class PlantHandlerTest{
     private boolean dummyDataCreated=false;
     PlantHandler ph=new PlantHandler();
+    DBPlantType dbPlantType=new DBPlantType();
+    DBSoilType dbSoilType=new DBSoilType();
+    DBLightTolerance dbLightTolerance=new DBLightTolerance();
+
 
     void createDummyData(){
         persistence.DB.createTables();
-        persistence.DBSoilType.create(new SoilType(1,"1"));
-        persistence.DBSoilType.create(new SoilType(2,"2"));
-        persistence.DBSoilType.create(new SoilType(3,"3"));
-        persistence.DBSoilType.create(new SoilType(4,"4"));
-        persistence.DBPlantType.create(new PlantType(1,"1"));
-        persistence.DBPlantType.create(new PlantType(2,"2"));
-        persistence.DBPlantType.create(new PlantType(3,"3"));
-        persistence.DBLightTolerance.create(new LightTolerance(1,"1"));
+        dbSoilType.create(new SoilType(1,"1"));
+        dbSoilType.create(new SoilType(2,"2"));
+        dbSoilType.create(new SoilType(3,"3"));
+        dbSoilType.create(new SoilType(4,"4"));
+        dbPlantType.create(new PlantType(1,"1"));
+        dbPlantType.create(new PlantType(2,"2"));
+        dbPlantType.create(new PlantType(3,"3"));
+        dbLightTolerance.create(new LightTolerance(1,"1"));
         ph.createPlant("Hortensia",1,4,1,"Hydrangéa");
 
         dummyDataCreated=true;
@@ -61,7 +68,7 @@ class PlantHandlerTest{
         assertEquals(1,searchOne.size(),"Number of search results should only be one");
 
         ArrayList<Plant> searchTwo=ph.search("monster");
-        assertEquals(0,searchOne.size(),"Number of search results should zero");
+        assertEquals(0,searchTwo.size(),"Number of search results should zero");
     }
 
     @Test

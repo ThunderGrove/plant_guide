@@ -102,19 +102,19 @@ public class DBPlant {
     }
 
     public ArrayList<Plant> getPlants(String request) {
-        ArrayList<Plant> plants = new ArrayList<Plant>();
+        ArrayList<Plant> plants = new ArrayList<>();
 
         String query = "SELECT * FROM plant AS p " +
                 "INNER JOIN soiltype AS st ON p.soiltype=st.id " +
                 "INNER JOIN planttype AS pt ON p.planttype=pt.id " +
                 "INNER JOIN lighttolerance AS lt ON p.lighttolerance=lt.id " +
-                "WHERE plant MATCH '?' " +
-                "ORDER BY rank";
+                "WHERE (p.name||st.name||pt.name||lt.name||extra) LIKE ? " +
+                "ORDER BY p.name";
 
         try (Connection conn = DB.connect();
             PreparedStatement ps = conn.prepareStatement(query)) {
 
-            ps.setString(1, request);
+            ps.setString(1, "%"+request+"%");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
