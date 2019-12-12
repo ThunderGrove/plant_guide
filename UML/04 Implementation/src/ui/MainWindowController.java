@@ -11,9 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import logic.Plant;
-import logic.PlantHandler;
-import persistence.DBPlant;
+import logic.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,9 +19,9 @@ import java.util.ArrayList;
 public class MainWindowController {
     @FXML private TableView<Plant> plantList;
     @FXML private TableColumn<Plant, String> navnColumn;
-    @FXML private TableColumn<Plant, Integer> plantetypeColumn;
-    @FXML private TableColumn<Plant, Integer> jordtypeColumn;
-    @FXML private TableColumn<Plant, Integer> lystoleranceColumn;
+    @FXML private TableColumn<Plant, PlantType> plantetypeColumn;
+    @FXML private TableColumn<Plant, SoilType> jordtypeColumn;
+    @FXML private TableColumn<Plant, LightTolerance> lystoleranceColumn;
     @FXML private TableColumn<Plant, String> infoColumn;
 
     public void initialize() {
@@ -32,7 +30,7 @@ public class MainWindowController {
 
     @FXML
     public void moveToCreateWindow() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Plant Guide-3.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("CreateWindow.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
 
@@ -45,13 +43,20 @@ public class MainWindowController {
     }
 
     @FXML
-    public void moveToEditWindow() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Plant Guide-4.fxml"));
+    public void moveToDetailWindow() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("DetailWindow.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
 
+        DetailWindowController.currentPlantId = plantList.getSelectionModel().getSelectedItem().getPlantID();
+        DetailWindowController.name = plantList.getSelectionModel().getSelectedItem().getName();
+        DetailWindowController.jType = "" + plantList.getSelectionModel().getSelectedItem().getSoilType().getName();
+        DetailWindowController.pType = "" + plantList.getSelectionModel().getSelectedItem().getPlantType().getName();
+        DetailWindowController.light = "" + plantList.getSelectionModel().getSelectedItem().getLighttolerance().getName();
+        DetailWindowController.comment = "" + plantList.getSelectionModel().getSelectedItem().getExtra();
+
         stage.setScene(scene);
-        stage.setTitle("Rediger plante");
+        stage.setTitle("Detaljeret");
         stage.setResizable(false);
         stage.initOwner(Main.window);
         stage.initModality(Modality.WINDOW_MODAL);
@@ -67,7 +72,7 @@ public class MainWindowController {
         list.addAll(array);
 
         navnColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        plantetypeColumn.setCellValueFactory(new PropertyValueFactory<>("planttype"));
+        plantetypeColumn.setCellValueFactory(new PropertyValueFactory<>("plantType"));
         jordtypeColumn.setCellValueFactory(new PropertyValueFactory<>("soilType"));
         lystoleranceColumn.setCellValueFactory(new PropertyValueFactory<>("lighttolerance"));
         infoColumn.setCellValueFactory(new PropertyValueFactory<>("extra"));

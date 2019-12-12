@@ -15,8 +15,7 @@
             </Label>
             <TextField layoutX="14.0" layoutY="126.0" prefHeight="25.0" prefWidth="641.0" />
             <Button layoutX="665.0" layoutY="126.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Søg" />
-            <Button layoutX="225.0" layoutY="91.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Slet Plante" />
-            <Button layoutX="118.0" layoutY="91.0" mnemonicParsing="false" onAction="#moveToEditWindow" prefHeight="25.0" prefWidth="88.0" text="Edit Plante" />
+            <Button layoutX="118.0" layoutY="91.0" mnemonicParsing="false" onAction="#moveToDetailWindow" prefHeight="26.0" prefWidth="222.0" text="Detaljeret visning på valgte plante" />
             <Button layoutX="14.0" layoutY="91.0" mnemonicParsing="false" onAction="#moveToCreateWindow" prefHeight="25.0" prefWidth="88.0" text="Ny Plante" />
             <ToggleButton layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="48.0" text="Hjælp" />
             <TableView fx:id="plantList" layoutX="14.0" layoutY="169.0" prefHeight="285.0" prefWidth="747.0">
