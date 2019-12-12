@@ -203,9 +203,9 @@ public class DBPlant {
 
             // set prepared statement values
             ps.setString(1, p.getName());
-            ps.setInt(2, p.getSoilType());
-            ps.setInt(3, p.getPlanttype());
-            ps.setInt(4, p.getLighttolerance());
+            ps.setInt(2, p.getSoilType().getId());
+            ps.setInt(3, p.getPlantType().getId());
+            ps.setInt(4, p.getLighttolerance().getId());
             ps.setString(5, p.getExtra());
 
             ps.executeUpdate();
