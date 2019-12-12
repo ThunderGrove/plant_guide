@@ -22,7 +22,7 @@ public class PlantHandler{
     }
 
     public void editPlant(int plantId,String plantName,int plantType,int soilType,int lighttolerance,String comment){
-        Plant plant=null;
+        Plant plant=new Plant();
         plant.setPlantID(plantId);
         plant.setPlantName(plantName);
         plant.setPlantType(plantType);
@@ -33,7 +33,7 @@ public class PlantHandler{
     }
 
     public void deletePlant(int plantId){
-        Plant plant=null;
+        Plant plant=new Plant();;
         plant.setPlantID(plantId);
         persistence.deletePlant(plant);
     }
