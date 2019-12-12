@@ -5,37 +5,17 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 import persistence.DBLightTolerance;
-import persistence.DBPlant;
 import persistence.DBPlantType;
 import persistence.DBSoilType;
 
 class PlantHandlerTest{
-    private boolean dummyDataCreated=false;
+
     PlantHandler ph=new PlantHandler();
-    DBPlantType dbPlantType=new DBPlantType();
-    DBSoilType dbSoilType=new DBSoilType();
-    DBLightTolerance dbLightTolerance=new DBLightTolerance();
-
-
-    void createDummyData(){
-        persistence.DB.createTables();
-        dbSoilType.create(new SoilType(1,"1"));
-        dbSoilType.create(new SoilType(2,"2"));
-        dbSoilType.create(new SoilType(3,"3"));
-        dbSoilType.create(new SoilType(4,"4"));
-        dbPlantType.create(new PlantType(1,"1"));
-        dbPlantType.create(new PlantType(2,"2"));
-        dbPlantType.create(new PlantType(3,"3"));
-        dbLightTolerance.create(new LightTolerance(1,"1"));
-        ph.createPlant("Hortensia",1,4,1,"Hydrangéa");
-
-        dummyDataCreated=true;
-    }
 
     @Test
     void checkName(){
-        if(!dummyDataCreated){
-            createDummyData();
+        if(!DummyData.dummyDataCreated){
+            DummyData.createDummyData();
         }
 
         assertEquals(true,ph.checkName("Hortensia"),"Hortensia not found");
@@ -44,8 +24,8 @@ class PlantHandlerTest{
 
     @Test
     void getPlant(){
-        if(!dummyDataCreated){
-            createDummyData();
+        if(!DummyData.dummyDataCreated){
+            DummyData.createDummyData();
         }
 
         Plant plantOne=ph.getPlant(1);
@@ -60,8 +40,8 @@ class PlantHandlerTest{
 
     @Test
     void search(){
-        if(!dummyDataCreated){
-            createDummyData();
+        if(!DummyData.dummyDataCreated){
+            DummyData.createDummyData();
         }
 
         ArrayList<Plant> searchOne=ph.search("Hydrangéa");
@@ -73,6 +53,14 @@ class PlantHandlerTest{
 
     @Test
     void editPlant(){
+        if(!DummyData.dummyDataCreated){
+            DummyData.createDummyData();
+        }
+
+        ph.editPlant(1,"Hortensia",1,4,1,"Navn på latin: Hydrangéa");
+        Plant plantOne=ph.getPlant(1);
+        assertEquals("Navn på latin: Hydrangéa",plantOne.getExtra(),"The expected data was not updated.");
+        ph.editPlant(1,"Hortensia",1,4,1,"Hydrangéa");
     }
 
     @Test
