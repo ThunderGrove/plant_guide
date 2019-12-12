@@ -100,7 +100,7 @@ public class DBPlant {
     }
 
     public ArrayList<Plant> getPlants() {
-        ArrayList<Plant> plants = new ArrayList<Plant>();
+        ArrayList<Plant> plants = new ArrayList<>();
 
         String query = "SELECT p.id," +
                 "p.name," +
@@ -110,7 +110,7 @@ public class DBPlant {
                 "st.name AS soiltype," +
                 "lt.id AS ltid," +
                 "lt.name AS lighttolerance," +
-                "p.extra FROM plant AS p" +
+                "p.extra FROM plant AS p " +
                 "INNER JOIN planttype AS pt ON p.planttype=pt.id " +
                 "INNER JOIN soiltype AS st ON p.soiltype=st.id " +
                 "INNER JOIN lighttolerance AS lt ON p.lighttolerance=lt.id";
@@ -284,5 +284,4 @@ public class DBPlant {
         }
 
     }
-
 }
