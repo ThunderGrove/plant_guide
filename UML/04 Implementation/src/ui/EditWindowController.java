@@ -12,6 +12,8 @@ import logic.PlantHandler;
 import logic.PlantType;
 import logic.SoilType;
 
+import java.io.IOException;
+
 public class EditWindowController {
     static int currentPlantId;
 
@@ -43,7 +45,13 @@ public class EditWindowController {
     }
 
     @FXML
-    void editPlant() {
+    void editPlant() throws IOException {
+        if (nameText.getText().equals("") ||pTypeChoice.getValue() == null||jTypeChoice.getValue() == null||lightChoice.getValue() == null) {
+            Main main = new Main();
+            main.ErrorWindow("Nogle felter mangler værdier.");
+            return;
+        }
+
         String name = nameText.getText();
         String pType = pTypeChoice.getValue();
         String jType = jTypeChoice.getValue();

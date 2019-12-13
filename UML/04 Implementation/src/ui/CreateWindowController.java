@@ -2,15 +2,21 @@ package ui;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logic.LightTolerance;
 import logic.PlantHandler;
 import logic.PlantType;
 import logic.SoilType;
+
+import java.io.IOException;
 
 public class CreateWindowController {
     @FXML TextField nameText;
@@ -30,7 +36,13 @@ public class CreateWindowController {
     }
 
     @FXML
-    void createPlant() {
+    void createPlant() throws IOException {
+        if (nameText.getText().equals("") ||pTypeChoice.getValue() == null||jTypeChoice.getValue() == null||lightChoice.getValue() == null) {
+            Main main = new Main();
+            main.ErrorWindow("Nogle felter mangler værdier.");
+            return;
+        }
+
         PlantHandler plantHandler = new PlantHandler();
         String name = nameText.getText();
         String pType = pTypeChoice.getValue();

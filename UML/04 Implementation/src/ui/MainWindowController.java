@@ -46,6 +46,9 @@ public class MainWindowController {
 
     @FXML
     public void moveToDetailWindow() throws IOException {
+        if (plantList.getSelectionModel().getSelectedItem() == null)
+            return;
+
         DetailWindowController.currentPlantId = plantList.getSelectionModel().getSelectedItem().getPlantID();
         DetailWindowController.name = plantList.getSelectionModel().getSelectedItem().getName();
         DetailWindowController.jType = "" + plantList.getSelectionModel().getSelectedItem().getSoilType().getName();

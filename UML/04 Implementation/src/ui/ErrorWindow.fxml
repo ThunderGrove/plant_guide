@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="201.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.ErrorWindowController">
+  <children>
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="450.0">
+         <children>
+            <Label fx:id="label" alignment="CENTER" layoutX="29.0" layoutY="43.0" prefHeight="90.0" prefWidth="392.0" text="FejlBesked">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="button" layoutX="188.0" layoutY="159.0" mnemonicParsing="false" onAction="#close" prefHeight="26.0" prefWidth="74.0" text="OK" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

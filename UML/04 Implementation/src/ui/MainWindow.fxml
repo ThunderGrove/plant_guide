@@ -20,7 +20,7 @@
             <ToggleButton layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="48.0" text="Hjælp" />
             <TableView fx:id="plantList" layoutX="14.0" layoutY="169.0" prefHeight="285.0" prefWidth="747.0">
               <columns>
-                <TableColumn fx:id="navnColumn" prefWidth="116.79999351501465" text="Navn" />
+                <TableColumn fx:id="navnColumn"  prefWidth="116.79999351501465" text="Navn" />
                   <TableColumn fx:id="plantetypeColumn" prefWidth="114.39996337890625" text="Plantetype" />
                 <TableColumn fx:id="jordtypeColumn" prefWidth="89.5999755859375" text="Jordtype" />
                   <TableColumn fx:id="lystoleranceColumn" prefWidth="102.4000244140625" text="Lystolerance" />
