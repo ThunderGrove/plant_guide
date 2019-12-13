@@ -1,6 +1,7 @@
 package ui;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -13,6 +14,7 @@ import logic.PlantType;
 import logic.SoilType;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class EditWindowController {
     static int currentPlantId;
@@ -33,9 +35,32 @@ public class EditWindowController {
     @FXML Button confirm;
 
     public void initialize() {
-        pTypeChoice.setItems(FXCollections.observableArrayList("Busk", "Staude", "Slyngplante", "Løgplante"));
-        jTypeChoice.setItems(FXCollections.observableArrayList("Ler/Silt", "Sand", "Kalk", "Sur"));
-        lightChoice.setItems(FXCollections.observableArrayList("Sol", "Skygge", "Tolerant"));
+        PlantHandler plantHandler = new PlantHandler();
+        ArrayList<PlantType> pTypes = plantHandler.getAllPlantTypes();
+        ObservableList<String> pList = FXCollections.observableArrayList();
+
+        for (int i = 0; i < pTypes.size(); i++) {
+            pList.addAll(pTypes.get(i).getName());
+        }
+
+        ArrayList<SoilType> jTypes = plantHandler.getAllSoilTypes();
+        ObservableList<String> jList = FXCollections.observableArrayList();
+
+        for (int i = 0; i < jTypes.size(); i++) {
+            jList.addAll(jTypes.get(i).getName());
+        }
+
+
+        ArrayList<LightTolerance> lights = plantHandler.getAllLightTolerances();
+        ObservableList<String> lightList = FXCollections.observableArrayList();
+
+        for (int i = 0; i < lights.size(); i++) {
+            lightList.addAll(lights.get(i).getName());
+        }
+
+        pTypeChoice.setItems(pList);
+        jTypeChoice.setItems(jList);
+        lightChoice.setItems(lightList);
 
         nameText.setText(name);
         pTypeChoice.setValue(pType);
