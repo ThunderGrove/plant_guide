@@ -1,12 +1,9 @@
 package ui;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import logic.PlantHandler;
-
-import java.io.IOException;
 
 public class ConfirmationWindowController {
     @FXML private Button no;
