@@ -25,20 +25,20 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="63.0" layoutY="185.0" text="Jordtype">
+            <Label layoutX="63.0" layoutY="225.0" text="Jordtype">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="63.0" layoutY="364.0" text="Info">
+            <Label layoutX="63.0" layoutY="364.0" text="Ekstra Info">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
             <ChoiceBox fx:id="lightChoice" layoutX="229.0" layoutY="269.0" prefHeight="25.0" prefWidth="316.0" />
-            <ChoiceBox fx:id="jTypeChoice" layoutX="229.0" layoutY="188.0" prefHeight="25.0" prefWidth="316.0" />
-            <ChoiceBox fx:id="pTypeChoice" layoutX="228.0" layoutY="230.0" prefHeight="25.0" prefWidth="316.0" />
-            <Label layoutX="61.0" layoutY="227.0" text="Plantetype">
+            <ChoiceBox fx:id="jTypeChoice" layoutX="229.0" layoutY="228.0" prefHeight="25.0" prefWidth="316.0" />
+            <ChoiceBox fx:id="pTypeChoice" layoutX="230.0" layoutY="183.0" prefHeight="25.0" prefWidth="316.0" />
+            <Label layoutX="63.0" layoutY="180.0" text="Plantetype">
                <font>
                   <Font size="20.0" />
                </font>
