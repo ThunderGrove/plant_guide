@@ -8,7 +8,7 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Label layoutX="314.0" layoutY="27.0" prefHeight="38.0" prefWidth="143.0" text="Plant Guide">
+            <Label alignment="CENTER" layoutX="266.0" layoutY="27.0" prefHeight="38.0" prefWidth="239.0" text="Plante Guide">
                <font>
                   <Font size="26.0" />
                </font>

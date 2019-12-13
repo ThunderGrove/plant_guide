@@ -18,7 +18,7 @@ public class Main extends Application {
         window = primaryStage;
 
         Parent root = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
-        window.setTitle("Plant Guide");
+        window.setTitle("Plante Guide");
         scene = new Scene(root, 771.0,468.0);
         window.setScene(scene);
         window.setResizable(false);

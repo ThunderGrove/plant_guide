@@ -84,17 +84,7 @@ public class MainWindowController {
         PlantHandler plantHandler = new PlantHandler();
         ArrayList<Plant> array = plantHandler.search();
 
-        ObservableList<Plant> list = FXCollections.observableArrayList();
-
-        list.addAll(array);
-
-        navnColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        plantetypeColumn.setCellValueFactory(new PropertyValueFactory<>("plantTypeUI"));
-        jordtypeColumn.setCellValueFactory(new PropertyValueFactory<>("soilTypeUI"));
-        lystoleranceColumn.setCellValueFactory(new PropertyValueFactory<>("lighttoleranceUI"));
-        infoColumn.setCellValueFactory(new PropertyValueFactory<>("extra"));
-
-        plantList.setItems(list);
+        PopulateTable(array);
     }
 
     @FXML
@@ -102,6 +92,10 @@ public class MainWindowController {
         PlantHandler plantHandler = new PlantHandler();
         ArrayList<Plant> array = plantHandler.search(search.getText());
 
+        PopulateTable(array);
+    }
+
+    private void PopulateTable(ArrayList<Plant> array) {
         ObservableList<Plant> list = FXCollections.observableArrayList();
 
         list.addAll(array);
