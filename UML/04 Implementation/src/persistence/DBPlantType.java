@@ -1,11 +1,10 @@
 package persistence;
 
+import logic.LightTolerance;
 import logic.PlantType;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class DBPlantType {
 
@@ -32,6 +31,33 @@ public class DBPlantType {
         }
 
         return pt;
+
+    }
+
+    public ArrayList<PlantType> getAll() {
+        ArrayList<PlantType> pts = new ArrayList<>();
+
+        String query = "SELECT * FROM planttype";
+
+        try (Connection conn = DB.connect();
+             Statement st = conn.createStatement()) {
+
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next()) {
+                PlantType pt = new PlantType(
+                        rs.getInt("id"),
+                        rs.getString("name")
+                );
+
+                pts.add(pt);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return pts;
 
     }
 
