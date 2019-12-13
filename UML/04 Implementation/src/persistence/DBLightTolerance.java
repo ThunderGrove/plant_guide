@@ -2,10 +2,9 @@ package persistence;
 
 import logic.LightTolerance;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.xml.transform.Result;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class DBLightTolerance {
 
@@ -32,6 +31,33 @@ public class DBLightTolerance {
         }
 
         return lt;
+    }
+
+    public ArrayList<LightTolerance> getAll() {
+        ArrayList<LightTolerance> lts = new ArrayList<>();
+
+        String query = "SELECT * FROM lighttolerance";
+
+        try (Connection conn = DB.connect();
+             Statement st = conn.createStatement()) {
+
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next()) {
+                LightTolerance lt = new LightTolerance(
+                        rs.getInt("id"),
+                        rs.getString("name")
+                );
+
+                lts.add(lt);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return lts;
+
     }
 
     public void create(LightTolerance lt) {
