@@ -1,9 +1,9 @@
 package persistence;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+
+import logic.LightTolerance;
 import logic.SoilType;
 
 public class DBSoilType {
@@ -48,6 +48,33 @@ public class DBSoilType {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
+    }
+
+    public ArrayList<SoilType> getAll() {
+        ArrayList<SoilType> sts = new ArrayList<>();
+
+        String query = "SELECT * FROM soiltype";
+
+        try (Connection conn = DB.connect();
+             Statement st = conn.createStatement()) {
+
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next()) {
+                SoilType soilType = new SoilType(
+                        rs.getInt("id"),
+                        rs.getString("name")
+                );
+
+                sts.add(soilType);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return sts;
 
     }
 
