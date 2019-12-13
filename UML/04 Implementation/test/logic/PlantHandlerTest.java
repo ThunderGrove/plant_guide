@@ -60,20 +60,23 @@ class PlantHandlerTest{
     }
 
     @Test
-    void deletePlant(){
+    void createPlant(){
+        ph.createPlant("JustATest",new PlantType(1,"Busk"),new SoilType(4,"Sur"),new LightTolerance(1,"Sol"),"This is just a test.");
+
+        assertNotEquals(0,ph.search("JustATest").size(),"Unable to add a new row to db.");
+    }
+
+    @Test
+    void createAndDeletePlant(){
+        ph.createPlant("JustATest",new PlantType(1,"Busk"),new SoilType(4,"Sur"),new LightTolerance(1,"Sol"),"This is just a test.");
+
+        assertNotEquals(0,ph.search("JustATest").size(),"Unable to add a new row to db.");
+
         ArrayList<Plant> result=ph.search("JustATest");
 
         if(result.size()>0){
             ph.deletePlant(result.get(0).getPlantID());
             assertNotEquals(result.size(),ph.search("JustATest").size(),"Nothing was deleted.");
         }
-
-    }
-
-    @Test
-    void createPlant(){
-        ph.createPlant("JustATest",new PlantType(1,"Busk"),new SoilType(4,"Sur"),new LightTolerance(1,"Sol"),"This is just a test.");
-
-        assertNotEquals(0,ph.search("JustATest").size(),"Unable to add a new row to db.");
     }
 }
