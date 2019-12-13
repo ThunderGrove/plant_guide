@@ -13,7 +13,7 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <TextField fx:id="search" layoutX="71.0" layoutY="125.0" onKeyPressed="#search" prefHeight="26.0" prefWidth="685.0" />
+            <TextField fx:id="search" layoutX="71.0" layoutY="125.0" onKeyTyped="#search" prefHeight="26.0" prefWidth="685.0" />
             <Button layoutX="356.0" layoutY="91.0" mnemonicParsing="false" onAction="#showPlants" prefHeight="25.0" prefWidth="88.0" text="Refresh" />
             <Button layoutX="118.0" layoutY="91.0" mnemonicParsing="false" onAction="#moveToDetailWindow" prefHeight="26.0" prefWidth="222.0" text="Detaljeret visning på valgte plante" />
             <Button layoutX="14.0" layoutY="91.0" mnemonicParsing="false" onAction="#moveToCreateWindow" prefHeight="25.0" prefWidth="88.0" text="Ny Plante" />
