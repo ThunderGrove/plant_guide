@@ -50,7 +50,7 @@
             </Label>
             <TextArea fx:id="textArea" layoutX="16.0" layoutY="130.0" prefHeight="256.0" prefWidth="612.0" />
             <Label layoutX="16.0" layoutY="112.0" prefHeight="18.0" prefWidth="69.0" text="Ekstra info" />
-            <Button fx:id="edit" layoutX="27.0" layoutY="403.0" mnemonicParsing="false" onAction="#moveToEditWindow" text="Opdaterer plante" />
+            <Button fx:id="edit" layoutX="27.0" layoutY="403.0" mnemonicParsing="false" onAction="#moveToEditWindow" text="Opdater plante" />
             <Button fx:id="delete" layoutX="142.0" layoutY="403.0" mnemonicParsing="false" onAction="#moveToConfirmationWindow" text="Slet plante" />
          </children>
       </AnchorPane>
