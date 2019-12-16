@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlantHandlerTest{
-
-    PlantHandler ph=new PlantHandler();
+    PlantHandler ph=new PlantHandler(true);
 
     @Test
     void checkName(){

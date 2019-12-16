@@ -6,13 +6,13 @@ import persistence.DBSoilType;
 
 public class DummyData{
     static boolean dummyDataCreated=false;
-    static DBPlantType dbPlantType=new DBPlantType();
-    static DBSoilType dbSoilType=new DBSoilType();
-    static DBLightTolerance dbLightTolerance=new DBLightTolerance();
-    static PlantHandler ph=new PlantHandler();
+    static DBPlantType dbPlantType=new DBPlantType(true);
+    static DBSoilType dbSoilType=new DBSoilType(true);
+    static DBLightTolerance dbLightTolerance=new DBLightTolerance(true);
+    static PlantHandler ph=new PlantHandler(true);
 
     public static void createDummyData(){
-        persistence.DB.createTables();
+        persistence.DB.createTables(true);
         dbSoilType.create(new SoilType(1,"Ler/Silt"));
         dbSoilType.create(new SoilType(2,"Sand"));
         dbSoilType.create(new SoilType(3,"Kalk"));

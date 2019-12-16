@@ -7,7 +7,17 @@ import persistence.DBLightTolerance;
 import persistence.DBPlantType;
 
 public class PlantHandler{
-    DBPlant persistence=new DBPlant();
+    DBPlant persistence=null;
+    private boolean testMode=false;
+
+    public PlantHandler(){
+        persistence=new DBPlant(testMode);
+    }
+
+    public PlantHandler(boolean testMode){
+        this.testMode=testMode;
+        persistence=new DBPlant(this.testMode);
+    }
 
     public Plant getPlant(int plantId){
         return persistence.getPlant(plantId);
@@ -63,17 +73,17 @@ public class PlantHandler{
     }
 
     public ArrayList<SoilType>getAllSoilTypes(){
-        DBSoilType dbSoilType=new DBSoilType();
+        DBSoilType dbSoilType=new DBSoilType(testMode);
         return dbSoilType.getAll();
     }
 
     public ArrayList<PlantType>getAllPlantTypes(){
-        DBPlantType dbPlantType=new DBPlantType();
+        DBPlantType dbPlantType=new DBPlantType(testMode);
         return dbPlantType.getAll();
     }
 
     public ArrayList<LightTolerance>getAllLightTolerances(){
-        DBLightTolerance dbLightTolerance=new DBLightTolerance();
+        DBLightTolerance dbLightTolerance=new DBLightTolerance(testMode);
         return dbLightTolerance.getAll();
     }
 }

@@ -6,47 +6,78 @@ import java.util.ArrayList;
 import logic.LightTolerance;
 import logic.SoilType;
 
-public class DBSoilType {
+public class DBSoilType{
+    boolean testMode=false;
+
+    public DBSoilType(boolean testMode){
+        this.testMode=testMode;
+    }
 
     public SoilType get(int id) {
         SoilType st = null;
 
         String query = "SELECT * FROM soiltype WHERE id = ? LIMIT 1";
 
-        try (Connection conn = DB.connect();
-            PreparedStatement ps = conn.prepareStatement(query)) {
+        if(testMode){
+            try(Connection conn=DB.connect(testMode);
+                 PreparedStatement ps=conn.prepareStatement(query)){
 
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
+                ps.setInt(1,id);
+                ResultSet rs=ps.executeQuery();
 
-            if (rs.next()) {
-                st = new SoilType(
-                        rs.getInt("id"),
-                        rs.getString("name")
-                );
+                if(rs.next()){
+                    st=new SoilType(
+                            rs.getInt("id"),
+                            rs.getString("name")
+                    );
+                }
+            }catch(SQLException e) {
+                System.out.println(e.getMessage());
             }
+        }else{
+            try(Connection conn = DB.connect();
+                 PreparedStatement ps = conn.prepareStatement(query)) {
 
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+                ps.setInt(1, id);
+                ResultSet rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    st = new SoilType(
+                            rs.getInt("id"),
+                            rs.getString("name")
+                    );
+                }
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
         }
 
         return st;
-
     }
 
-    public void create(SoilType st) {
+    public void create(SoilType st){
+        String query="INSERT INTO soiltype(name) VALUES(?)";
 
-        String query = "INSERT INTO soiltype(name) VALUES(?)";
+        if(testMode){
+            try(Connection conn=DB.connect(testMode);
+                 PreparedStatement ps=conn.prepareStatement(query)){
 
-        try (Connection conn = DB.connect();
-             PreparedStatement ps = conn.prepareStatement(query)) {
+                ps.setString(1, st.getName());
 
-            ps.setString(1, st.getName());
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }else{
+            try(Connection conn=DB.connect();
+                PreparedStatement ps=conn.prepareStatement(query)){
 
-            ps.executeUpdate();
+                ps.setString(1,st.getName());
 
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+                ps.executeUpdate();
+            }catch(SQLException e){
+                System.out.println(e.getMessage());
+            }
         }
 
     }
@@ -56,62 +87,97 @@ public class DBSoilType {
 
         String query = "SELECT * FROM soiltype";
 
-        try (Connection conn = DB.connect();
-             Statement st = conn.createStatement()) {
+        if(testMode){
+            try(Connection conn=DB.connect(testMode);
+                 Statement st=conn.createStatement()) {
 
-            ResultSet rs = st.executeQuery(query);
+                ResultSet rs=st.executeQuery(query);
 
-            while (rs.next()) {
-                SoilType soilType = new SoilType(
-                        rs.getInt("id"),
-                        rs.getString("name")
-                );
+                while(rs.next()){
+                    SoilType soilType=new SoilType(
+                            rs.getInt("id"),
+                            rs.getString("name")
+                    );
 
-                sts.add(soilType);
+                    sts.add(soilType);
+                }
+
+            }catch(SQLException e){
+                System.out.println(e.getMessage());
             }
+        }else{
+            try(Connection conn=DB.connect();
+                 Statement st=conn.createStatement()){
 
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+                ResultSet rs=st.executeQuery(query);
+
+                while(rs.next()){
+                    SoilType soilType=new SoilType(
+                            rs.getInt("id"),
+                            rs.getString("name")
+                    );
+                    sts.add(soilType);
+                }
+            }catch(SQLException e){
+                System.out.println(e.getMessage());
+            }
         }
 
         return sts;
-
     }
 
-    public void edit(SoilType st) {
-
-        String query = "UPDATE soiltype SET name = ? " +
+    public void edit(SoilType st){
+        String query="UPDATE soiltype SET name = ? " +
                 "WHERE id = ?";
 
-        try (Connection conn = DB.connect();
-            PreparedStatement ps = conn.prepareStatement(query)) {
+        if(testMode){
+            try(Connection conn=DB.connect(testMode);
+                 PreparedStatement ps=conn.prepareStatement(query)) {
 
-            ps.setString(1, st.getName());
-            ps.setInt(2, st.getId());
+                ps.setString(1,st.getName());
+                ps.setInt(2,st.getId());
 
-            ps.executeUpdate();
+                ps.executeUpdate();
+            }catch(SQLException e){
+                System.out.println(e.getMessage());
+            }
+        }else{
+            try(Connection conn=DB.connect();
+                 PreparedStatement ps=conn.prepareStatement(query)){
 
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+                ps.setString(1,st.getName());
+                ps.setInt(2,st.getId());
+
+                ps.executeUpdate();
+            }catch(SQLException e){
+                System.out.println(e.getMessage());
+            }
         }
-
     }
 
     public void delete(SoilType st) {
+        String query="DELETE FROM soiltype WHERE id = ?";
 
-        String query = "DELETE FROM plant WHERE id = ?";
+        if(testMode){
+            try(Connection conn=DB.connect(testMode);
+                 PreparedStatement ps=conn.prepareStatement(query)){
 
-        try (Connection conn = DB.connect();
-            PreparedStatement ps = conn.prepareStatement(query)) {
+                ps.setInt(1,st.getId());
 
-            ps.setInt(1, st.getId());
+                ps.executeUpdate();
+            }catch(SQLException e){
+                System.out.println(e.getMessage());
+            }
+        }else{
+            try(Connection conn=DB.connect();
+                 PreparedStatement ps=conn.prepareStatement(query)) {
 
-            ps.executeUpdate();
+                ps.setInt(1,st.getId());
 
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
         }
-
     }
-
 }
