@@ -8,50 +8,50 @@
    <children>
       <AnchorPane prefHeight="415.0" prefWidth="640.0">
          <children>
-            <Label layoutX="14.0" layoutY="14.0" prefHeight="37.0" prefWidth="102.0" text="Plantenavn:">
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="37.0" prefWidth="128.0" text="Plantenavn:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="nameLabel" layoutX="116.0" layoutY="19.0" prefHeight="27.0" prefWidth="186.0" text="navn">
+            <Label fx:id="nameLabel" layoutX="128.0" layoutY="19.0" prefHeight="27.0" prefWidth="186.0" text="navn">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="320.0" layoutY="13.0" prefHeight="37.0" prefWidth="102.0" text="Plantetype:">
+            <Label layoutX="320.0" layoutY="13.0" prefHeight="37.0" prefWidth="128.0" text="Plantetype:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="pTypeLabel" layoutX="440.0" layoutY="23.0" prefHeight="20.0" prefWidth="186.0" text="pType">
+            <Label fx:id="pTypeLabel" layoutX="450.0" layoutY="23.0" prefHeight="20.0" prefWidth="186.0" text="pType">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="52.0" prefHeight="37.0" prefWidth="102.0" text="Jordtype:">
+            <Label layoutX="14.0" layoutY="52.0" prefHeight="37.0" prefWidth="128.0" text="Jordtype:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="jTypeLabel" layoutX="116.0" layoutY="57.0" prefHeight="27.0" prefWidth="186.0" text="jType">
+            <Label fx:id="jTypeLabel" layoutX="128.0" layoutY="57.0" prefHeight="27.0" prefWidth="186.0" text="jType">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="320.0" layoutY="51.0" prefHeight="38.0" prefWidth="114.0" text="Lystolerance:">
+            <Label layoutX="320.0" layoutY="51.0" prefHeight="38.0" prefWidth="128.0" text="Lystolerance:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lightLabel" layoutX="442.0" layoutY="61.0" prefHeight="20.0" prefWidth="186.0" text="light">
+            <Label fx:id="lightLabel" layoutX="450.0" layoutY="61.0" prefHeight="20.0" prefWidth="186.0" text="light">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
             <TextArea fx:id="textArea" layoutX="16.0" layoutY="130.0" prefHeight="256.0" prefWidth="612.0" />
-            <Label layoutX="16.0" layoutY="112.0" prefHeight="18.0" prefWidth="69.0" text="Ekstra info" />
+            <Label layoutX="16.0" layoutY="112.0" prefHeight="18.0" prefWidth="96.0" text="Ekstra info" />
             <Button fx:id="edit" layoutX="27.0" layoutY="403.0" mnemonicParsing="false" onAction="#moveToEditWindow" text="Opdater plante" />
-            <Button fx:id="delete" layoutX="142.0" layoutY="403.0" mnemonicParsing="false" onAction="#moveToConfirmationWindow" text="Slet plante" />
+            <Button fx:id="delete" layoutX="146.0" layoutY="403.0" mnemonicParsing="false" onAction="#moveToConfirmationWindow" text="Slet plante" />
          </children>
       </AnchorPane>
    </children>
