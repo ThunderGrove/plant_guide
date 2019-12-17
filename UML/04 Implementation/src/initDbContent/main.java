@@ -31,6 +31,51 @@ public class main{
         dbLightTolerance.create(new LightTolerance(2,"Skygge"));
         dbLightTolerance.create(new LightTolerance(3,"Tolerant"));
 
+        //SoilType 1 Ler/Silt:
+        ph.createPlant("Rose",new PlantType(1,"Busk"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Rosa hýbrida sp.");
+        ph.createPlant("Japankvæde",new PlantType(1,"Busk"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Chaenoméles sp.");
+        ph.createPlant("Dværgmispel",new PlantType(1,"Busk"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Cotoneáster sp.");
+        ph.createPlant("Snebær",new PlantType(1,"Busk"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Symphoricárpos sp.");
+
+        ph.createPlant("Aukuba",new PlantType(1,"Busk"),new SoilType(1,"Ler/Silt"),new LightTolerance(2,"Skygge"),"Navn på latin: Aucúba japónica sp.");
+        ph.createPlant("Mahonie",new PlantType(1,"Busk"),new SoilType(1,"Ler/Silt"),new LightTolerance(2,"Skygge"),"Navn på latin: Mahónia aquifólium");
+        ph.createPlant("Hvid Kornel",new PlantType(1,"Busk"),new SoilType(1,"Ler/Silt"),new LightTolerance(2,"Skygge"),"Navn på latin: Córnus alba sp.");
+        ph.createPlant("Fjældribs",new PlantType(1,"Busk"),new SoilType(1,"Ler/Silt"),new LightTolerance(2,"Skygge"),"Navn på latin: Ribes alpinum");
+
+        ph.createPlant("Troldnød",new PlantType(1,"Busk"),new SoilType(1,"Ler/Silt"),new LightTolerance(3,"Tolerant"),"Navn på latin: Hamamélis sp.");
+        ph.createPlant("Blodribs",new PlantType(1,"Busk"),new SoilType(1,"Ler/Silt"),new LightTolerance(3,"Tolerant"),"Navn på latin: Ribes sanguineum sp.");
+        ph.createPlant("Troldhassel",new PlantType(1,"Busk"),new SoilType(1,"Ler/Silt"),new LightTolerance(3,"Tolerant"),"Navn på latin: Córylus avellána");
+        ph.createPlant("Rynkeblad",new PlantType(1,"Busk"),new SoilType(1,"Ler/Silt"),new LightTolerance(3,"Tolerant"),"Navn på latin: Vibúrnum rhytidophýllum");
+
+        ph.createPlant("Akantus",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Symphoricárpos sp.");
+        ph.createPlant("Fløjlsblomst",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Symphoricárpos sp.");
+        ph.createPlant("Læbeløs",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Symphoricárpos sp.");
+        ph.createPlant("Evighedsblomst",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Symphoricárpos sp.");
+        ph.createPlant("Gyldenris",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Symphoricárpos sp.");
+
+        ph.createPlant("Salomons segl",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(2,"Skygge"),"Navn på latin: Polygonátum sp.");
+        ph.createPlant("Kulsukker",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(2,"Skygge"),"Navn på latin: Sýmphytum sp.");
+        ph.createPlant("Ingefær",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(2,"Skygge"),"Navn på latin: Arum sp.");
+        ph.createPlant("Bispehue",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(2,"Skygge"),"Navn på latin: Epimédium grandiflórum");
+        ph.createPlant("Kermesbær",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(2,"Skygge"),"Navn på latin: Phytolácca americána");
+
+        ph.createPlant("Daglilje",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(3,"Tolerant"),"Navn på latin: Sédum sp.");
+        ph.createPlant("Primula",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(3,"Tolerant"),"Navn på latin: Hepática sp.");
+        ph.createPlant("Nyserod",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(3,"Tolerant"),"Navn på latin: Helléborus sp.");
+        ph.createPlant("Nyserod",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(3,"Tolerant"),"Navn på latin: Hepática sp.");
+        ph.createPlant("Stenurt",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(3,"Tolerant"),"Navn på latin: Sédum sp.");
+
+        ph.createPlant("Vedben",new PlantType(3,"Slyngplanter"),new SoilType(1,"Ler/Silt"),new LightTolerance(3,"Tolerant"),"Navn på latin: Hédera sp.");
+        ph.createPlant("Blåregn",new PlantType(3,"Slyngplanter"),new SoilType(1,"Ler/Silt"),new LightTolerance(3,"Tolerant"),"Navn på latin: Wistéria sinénsis");
+
+        //SoilType 2 Sand:
+        ph.createPlant("Gyvel",new PlantType(1,"Busk"),new SoilType(2,"Sand"),new LightTolerance(1,"Sol"),"Navn på latin: Cýtisus sp.");
+
+        ph.createPlant("Stauder",new PlantType(2,"Stauder"),new SoilType(2,"Sand"),new LightTolerance(2,"Skygge"),"Navn på latin: Geranium sp.");
+
+        ph.createPlant("Kaprifolie",new PlantType(3,"Slyngplanter"),new SoilType(2,"Sand"),new LightTolerance(3,"Tolerant"),"Navn på latin: Lonicera sp.");
+
+
         //SoilType 3 Kalk:
         ph.createPlant("Uægte Jasmin",new PlantType(1,"Busk"),new SoilType(3,"Kalk"),new LightTolerance(1,"Sol"),"Navn på latin: Philadelphus sp.");
         ph.createPlant("Syren",new PlantType(1,"Busk"),new SoilType(3,"Kalk"),new LightTolerance(1,"Sol"),"Navn på latin: Syringa sp.");
@@ -64,8 +109,15 @@ public class main{
         ph.createPlant("Potentil",new PlantType(2,"Stauder"),new SoilType(3,"Kalk"),new LightTolerance(3,"Tolerant"),"Navn på latin: Potentilla sp.");
         ph.createPlant("Alunrod",new PlantType(2,"Stauder"),new SoilType(3,"Kalk"),new LightTolerance(3,"Tolerant"),"Navn på latin: Heúchera brizoides var.");
 
-        ph.createPlant("Clematis",new PlantType(1,"Busk"),new SoilType(3,"Kalk"),new LightTolerance(3,"Tolerant"),"Navn på latin: Clematis sp.");
-        ph.createPlant("Vinrake",new PlantType(1,"Busk"),new SoilType(3,"Kalk"),new LightTolerance(3,"Tolerant"),"Navn på latin: Vitis vinifera sp.");
-        ph.createPlant("Vinter-jasmin",new PlantType(1,"Busk"),new SoilType(3,"Kalk"),new LightTolerance(3,"Tolerant"),"Navn på latin: Jasminum nudiflórum");
+        ph.createPlant("Clematis",new PlantType(3,"Slyngplanter"),new SoilType(3,"Kalk"),new LightTolerance(3,"Tolerant"),"Navn på latin: Clematis sp.");
+        ph.createPlant("Vinrake",new PlantType(3,"Slyngplanter"),new SoilType(3,"Kalk"),new LightTolerance(3,"Tolerant"),"Navn på latin: Vitis vinifera sp.");
+        ph.createPlant("Vinter-jasmin",new PlantType(3,"Slyngplanter"),new SoilType(3,"Kalk"),new LightTolerance(3,"Tolerant"),"Navn på latin: Jasminum nudiflórum");
+
+        //SoilType 4 Sur:
+        ph.createPlant("Hortensia",new PlantType(1,"Busk"),new SoilType(4,"Sur"),new LightTolerance(1,"Sol"),"Navn på latin: Hydrangéa sp.");
+
+        ph.createPlant("Alpeviol",new PlantType(2,"Stauder"),new SoilType(4,"Sur"),new LightTolerance(2,"Skygge"),"Navn på latin: Cyclámen neapolitánum");
+
+        ph.createPlant("Trompetblomst",new PlantType(3,"Slyngplanter"),new SoilType(4,"Sur"),new LightTolerance(3,"Tolerant"),"Navn på latin: Campsis radicana");
     }
 }
