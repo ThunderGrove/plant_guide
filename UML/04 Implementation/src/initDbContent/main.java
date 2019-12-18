@@ -47,11 +47,11 @@ public class main{
         ph.createPlant("Troldhassel",new PlantType(1,"Busk"),new SoilType(1,"Ler/Silt"),new LightTolerance(3,"Tolerant"),"Navn på latin: Córylus avellána");
         ph.createPlant("Rynkeblad",new PlantType(1,"Busk"),new SoilType(1,"Ler/Silt"),new LightTolerance(3,"Tolerant"),"Navn på latin: Vibúrnum rhytidophýllum");
 
-        ph.createPlant("Akantus",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Symphoricárpos sp.");
-        ph.createPlant("Fløjlsblomst",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Symphoricárpos sp.");
-        ph.createPlant("Læbeløs",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Symphoricárpos sp.");
-        ph.createPlant("Evighedsblomst",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Symphoricárpos sp.");
-        ph.createPlant("Gyldenris",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Symphoricárpos sp.");
+        ph.createPlant("Akantus",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Acánthus sp.");
+        ph.createPlant("Fløjlsblomst",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Tagétes sp.");
+        ph.createPlant("Læbeløs",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Ajuga sp.");
+        ph.createPlant("Evighedsblomst",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Anáphalis sp.");
+        ph.createPlant("Gyldenris",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(1,"Sol"),"Navn på latin: Solidágo hýbrida sp.");
 
         ph.createPlant("Salomons segl",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(2,"Skygge"),"Navn på latin: Polygonátum sp.");
         ph.createPlant("Kulsukker",new PlantType(2,"Stauder"),new SoilType(1,"Ler/Silt"),new LightTolerance(2,"Skygge"),"Navn på latin: Sýmphytum sp.");
