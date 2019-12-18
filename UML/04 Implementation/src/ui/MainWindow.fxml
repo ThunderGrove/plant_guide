@@ -16,7 +16,7 @@
             <TextField fx:id="search" layoutX="71.0" layoutY="125.0" onKeyTyped="#search" prefHeight="26.0" prefWidth="685.0" />
             <Button layoutX="118.0" layoutY="91.0" mnemonicParsing="false" onAction="#moveToDetailWindow" prefHeight="26.0" prefWidth="256.0" text="Detaljeret visning på valgte plante" />
             <Button layoutX="14.0" layoutY="91.0" mnemonicParsing="false" onAction="#moveToCreateWindow" prefHeight="25.0" prefWidth="88.0" text="Ny Plante" />
-            <ToggleButton layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Hjælp" />
+            <!--<ToggleButton layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Hjælp" />-->
             <TableView fx:id="plantList" layoutX="14.0" layoutY="169.0" prefHeight="285.0" prefWidth="747.0">
               <columns>
                 <TableColumn fx:id="navnColumn" prefWidth="116.79999351501465" text="Navn" />

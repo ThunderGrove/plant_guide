@@ -14,7 +14,7 @@
                </font>
             </Label>
             <Button fx:id="confirm" layoutX="618.0" layoutY="422.0" mnemonicParsing="false" onAction="#createPlant" prefHeight="25.0" prefWidth="96.0" text="Godkend" />
-            <ToggleButton layoutX="706.0" layoutY="19.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Hjælp" />
+            <!--<ToggleButton layoutX="706.0" layoutY="19.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Hjælp" />-->
             <Label layoutX="342.0" layoutY="70.0" prefHeight="38.0" prefWidth="96.0" text="Ny Plante" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
