@@ -30,6 +30,8 @@ public class MainWindowController {
 
     public void initialize() {
         showPlants();
+        navnColumn.setSortType(TableColumn.SortType.ASCENDING);
+        plantList.getSortOrder().add(navnColumn);
     }
 
     @FXML
